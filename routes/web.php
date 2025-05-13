@@ -40,3 +40,6 @@ Route::get('/edit_profile', [EditProfileController::class, 'index'])->name('edit
 
 use App\Http\Controllers\ChatAdminController;
 Route::get('/chat_admin', [ChatAdminController::class, 'index'])->name('chat_admin');
+
+use App\Http\Controllers\StudioGabunganController;
+Route::get('/tampilan_studiogabungan', [StudioGabunganController::class, 'index'])->name('tampilan_studiogabungan');
