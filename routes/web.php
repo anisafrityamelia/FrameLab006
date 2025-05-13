@@ -40,3 +40,34 @@ Route::get('/edit_profile', [EditProfileController::class, 'index'])->name('edit
 
 use App\Http\Controllers\ChatAdminController;
 Route::get('/chat_admin', [ChatAdminController::class, 'index'])->name('chat_admin');
+
+use App\Http\Controllers\LandingPage1Controller;
+Route::get('/landing_page1', [LandingPage1Controller::class, 'index'])->name('landing_page1');
+
+use App\Http\Controllers\LoginController;
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+
+use App\Http\Controllers\RegisterController;
+Route::get('/register', [registerController::class, 'index'])->name('register');
+
+use App\Http\Controllers\DetailStudioPhotoController;
+Route::get('/detail_studio_photo', [DetailStudioPhotoController::class, 'index'])->name('detail_studio_photo');
+
+use App\Http\Controllers\DetailStudioVideoController;
+Route::get('/detail_studio_video', [DetailStudioVideoController::class, 'index'])->name('detail_studio_video');
+
+use App\Http\Controllers\DetailStudioSpaceController;
+Route::get('/detail_studio_space', [DetailStudioSpaceController::class, 'index'])->name('detail_studio_space');
+
+use App\Http\Controllers\ReviewController;
+Route::get('/review', [ReviewController::class, 'index'])->name('review');
+
+use App\Http\Controllers\ConfirmSewaPhotoController;
+Route::post('/confirm_sewa_photo', [ConfirmSewaPhotoController::class, 'index'])->name('confirm_sewa_photo');
+
+use App\Http\Controllers\ConfirmSewaVideoController;
+Route::post('/confirm_sewa_video', [ConfirmSewaVideoController::class, 'index'])->name('confirm_sewa_video');
+
+use App\Http\Controllers\ConfirmSewaSpaceController;
+Route::post('/confirm_sewa_space', [ConfirmSewaSpaceController::class, 'index'])->name('confirm_sewa_space');
+
