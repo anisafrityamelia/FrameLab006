@@ -32,7 +32,7 @@
       ?>
     </div>
     <div class="text-center mt-8">
-      <a href="tampilan_studio_gabungan" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-all duration-300 hover:shadow-lg">View More</a>
+      <a href="tampilan_studiogabungan" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-all duration-300 hover:shadow-lg">View More</a>
     </div>
   </div>
 </section>

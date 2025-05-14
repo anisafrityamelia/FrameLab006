@@ -18,7 +18,7 @@
       <h3 class="text-2xl">Terrena</h3>
       <p class="text-xl mt-2">Rp. 100.000/Session</p>
       <p class="mt-4">Capture moments with your loved ones in 15 minutes! Photobooth with a simple and timeless concept, perfect for you and your bestie or partner</p>
-      <form action="/confirm_studio_space" method="POST">
+      <form action="/confirm_sewa_space" method="POST">
         @csrf
         <div class="mb-4">
           <label for="orderDate" class="block mb-2">Order Date</label>
@@ -33,7 +33,7 @@
             <option>11:00 - 11:15</option>
           </select>
         </div>
-        <button type="detail_sewa_space" class="w-[500px] bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded">Order Now</button>
+        <button type="submit" class="w-[500px] bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded">Order Now</button>
       </form>
     </div>
   </div>

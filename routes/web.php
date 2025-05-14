@@ -71,3 +71,5 @@ Route::post('/confirm_sewa_video', [ConfirmSewaVideoController::class, 'index'])
 use App\Http\Controllers\ConfirmSewaSpaceController;
 Route::post('/confirm_sewa_space', [ConfirmSewaSpaceController::class, 'index'])->name('confirm_sewa_space');
 
+use App\Http\Controllers\StudioGabunganController;
+Route::get('/tampilan_studiogabungan', [StudioGabunganController::class, 'index'])->name('tampilan_studiogabungan');
