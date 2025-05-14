@@ -32,7 +32,7 @@
             <input type="file" class="w-[500px] border border-white rounded-none py-1 px-2 text-primary bg-white" name="payment_proof" accept="image/*" required />
           </div>
           <div class="flex justify-center">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white w-fit px-3 py-1.5 rounded mt-4 ml-20">Confirm & Pay</button>
+            <a href="review" class="bg-blue-600 hover:bg-blue-700 text-white w-fit px-3 py-1.5 rounded mt-4 ml-20 inline-block mt-4 ml-20">Confirm & Pay</a>
           </div>
         </form>
       </div>
