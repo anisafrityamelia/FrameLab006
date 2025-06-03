@@ -20,6 +20,9 @@ Route::get('/feedback_admin', [FeedbackController::class, 'index'])->name('feedb
 use App\Http\Controllers\RoomDataController;
 Route::get('/room_data_admin', [RoomDataController::class, 'index'])->name('room_data_admin');
 
+use App\Http\Controllers\RoomPartnerController;
+Route::get('/room_partner_admin', [RoomPartnerController::class, 'index'])->name('room_partner_admin');
+
 use App\Http\Controllers\DataVerificationController;
 Route::get('/data_verification', [DataVerificationController::class, 'index'])->name('data_verification');
 

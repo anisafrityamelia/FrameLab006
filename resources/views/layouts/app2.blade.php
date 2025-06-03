@@ -26,7 +26,7 @@
 </head>
 <body class="min-h-screen bg-secondary font-custom">
     @include('components.navbar')
-    <div class="flex flex-col md:flex-row mt-12 px-12 gap-11">
+    <div class="flex flex-col md:flex-row mt-11 px-12 gap-11">
         @include('components.sidebar1')
         <div class="flex-1">
             @yield('content')

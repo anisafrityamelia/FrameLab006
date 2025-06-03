@@ -3,8 +3,8 @@
 @section('title', 'Edit Password')
 
 @section('content')
-    <div class="bg-primary text-secondary rounded-3xl p-14 h-[100vh] max-h-[600px]">
-        <h4 class="text-center text-2xl mb-10 mt-2">Edit Password</h4>
+    <div class="bg-primary text-secondary rounded-3xl p-10 h-[100vh] max-h-[560px]">
+        <h4 class="text-center text-2xl mb-10">Edit Password</h4>
         <form method="POST" class="space-y-6">
         	<div class="m-4">
         		<label for="username" class="block mb-2">Username</label>

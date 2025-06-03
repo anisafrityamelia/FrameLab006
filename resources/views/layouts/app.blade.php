@@ -25,13 +25,18 @@
 </head>
 <body class="min-h-screen bg-secondary font-custom">
   @include('components.navbar')
-  <div class="flex flex-col md:flex-row mt-12 px-12 gap-11">
+  <div class="flex flex-col md:flex-row mt-11 px-12 gap-11">
     @include('components.sidebar')
     <div class="flex-1">
       @yield('content')
     </div>
   </div>
   <script>
+    function toggleRoomSubmenu() {
+      const submenu = document.getElementById('roomSubmenu');
+      submenu.classList.toggle('hidden');
+    }
+
     function toggleSubmenu() {
       const submenu = document.getElementById('submenu');
       submenu.classList.toggle('hidden');

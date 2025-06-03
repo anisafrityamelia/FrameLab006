@@ -3,10 +3,10 @@
 @section('title', 'Dashboard Admin')
 
 @section('content')
-    <div class="bg-primary text-secondary rounded-3xl p-7 h-[100vh] max-h-[600px]">
+    <div class="bg-primary text-secondary rounded-3xl p-7 h-[100vh] max-h-[560px]">
         <h4 class="text-2xl mb-1 mt-1">Hello, Admin!</h4>
         <p class="text-lg">Welcome to your dashboard.</p>
-        <div class="flex flex-wrap justify-center gap-10 mt-11">
+        <div class="flex flex-wrap justify-center gap-8 mt-7">
             @include('components.card_admin', [
                 'title' => 'Room Data',
                 'count' => '20',
@@ -28,7 +28,7 @@
                 'link' => 'users_data_admin',
             ])
         </div>
-        <div class="flex flex-wrap justify-center gap-10 mt-10">
+        <div class="flex flex-wrap justify-center gap-8 mt-8">
             @include('components.card_admin', [
                 'title' => 'Pending',
                 'count' => '5',

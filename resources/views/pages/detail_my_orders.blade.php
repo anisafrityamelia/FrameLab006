@@ -3,8 +3,8 @@
 @section('title', 'Detail My Orders')
 
 @section('content')
-    <div class="bg-primary text-secondary rounded-3xl p-14 h-[100vh] max-h-[600px]">
-        <h4 class="text-center text-2xl mb-10 mt-2">Detail Order</h4>
+    <div class="bg-primary text-secondary rounded-3xl p-10 h-[100vh] max-h-[560px]">
+        <h4 class="text-center text-2xl mb-8">Detail Order</h4>
         <div class="flex gap-12">
         	<div class="w-1/2 h-[415px] overflow-hidden rounded-3xl">
             	<img src="images/gambar11.jpeg" alt="Studio" class="w-full h-full object-cover rounded-3xl">

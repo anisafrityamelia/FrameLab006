@@ -1,4 +1,4 @@
-<div class="bg-primary text-secondary w-full md:w-[286px] h-[100vh] max-h-[600px] p-8 rounded-3xl space-y-4">
+<div class="bg-primary text-secondary w-full md:w-[286px] h-[100vh] max-h-[560px] p-8 rounded-3xl space-y-4">
     <a href="landing_page1" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
         <i class="fa-solid fa-house mr-2"></i>Home
     </a>

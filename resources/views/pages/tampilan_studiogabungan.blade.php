@@ -3,7 +3,7 @@
 @section('title', 'Studio Gabungan')
 
 @section('content')
-    <div class="container mx-auto mt-8 max-w-7xl">
+    <div class="container mx-auto mt-8 mb-10 max-w-7xl">
 		<h4 class="text-center font-bold text-2xl mb-8 text-primary">OUR SERVICE</h4></a>
 		<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
             @include('components.search')
@@ -14,7 +14,7 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar1.jpg',
                 'title' => 'Photobooth',
-                'price' => '100.000',
+                'price' => 'Rp. 50.000',
                 'link' => 'detail_studio_photo',
             ])
 
@@ -22,7 +22,7 @@
                 'category' => 'Studio Space',
                 'image' => 'images/gambar9.jpeg',
                 'title' => 'Verdura',
-                'price' => '100.000',
+                'price' => 'Rp. 100.000',
                 'link' => '',
             ])
 
@@ -30,7 +30,7 @@
                 'category' => 'Studio Videos',
                 'image' => 'images/gambar16.jpeg',
                 'title' => 'Streamline',
-                'price' => '100.000',
+                'price' => 'Rp. 135.000',
                 'link' => '',
             ])
 
@@ -38,7 +38,7 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar2.jpeg',
                 'title' => 'Studio Pro Regular',
-                'price' => '100.000',
+                'price' => 'Rp. 185.000',
                 'link' => '',
             ])
 
@@ -46,7 +46,7 @@
                 'category' => 'Studio Space',
                 'image' => 'images/gambar10.jpeg',
                 'title' => 'Aqualoom',
-                'price' => '100.000',
+                'price' => 'Rp. 100.000',
                 'link' => '',
             ])
 
@@ -54,7 +54,7 @@
                 'category' => 'Studio Videos',
                 'image' => 'images/gambar15.jfif',
                 'title' => 'Pod Space',
-                'price' => '100.000',
+                'price' => 'Rp. 135.000',
                 'link' => 'detail_studio_video',
             ])
 
@@ -62,7 +62,7 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar3.jpeg',
                 'title' => 'High Angle',
-                'price' => '100.000',
+                'price' => 'Rp. 50.000',
                 'link' => '',
             ])
 
@@ -70,7 +70,7 @@
                 'category' => 'Studio Space',
                 'image' => 'images/gambar11.jpeg',
                 'title' => 'Terrena',
-                'price' => '100.000',
+                'price' => 'Rp. 100.000',
                 'link' => 'detail_studio_space',
             ])
 
@@ -78,7 +78,7 @@
                 'category' => 'Studio Videos',
                 'image' => 'images/gambar14.jpeg',
                 'title' => 'LoopBox',
-                'price' => '100.000',
+                'price' => 'Rp. 120.000',
                 'link' => '',
             ])
 
@@ -86,7 +86,7 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar4.jpg',
                 'title' => 'Wide Angle',
-                'price' => '100.000',
+                'price' => 'Rp. 50.000',
                 'link' => '',
             ])
 
@@ -94,7 +94,7 @@
                 'category' => 'Studio Space',
                 'image' => 'images/gambar12.jpeg',
                 'title' => 'Y2Kraze',
-                'price' => '100.000',
+                'price' => 'Rp. 100.000',
                 'link' => '',
             ])
 
@@ -102,7 +102,7 @@
                 'category' => 'Studio Videos',
                 'image' => 'images/gambar13.jpeg',
                 'title' => 'FrameRun',
-                'price' => '100.000',
+                'price' => 'Rp. 100.000',
                 'link' => '',
             ])
 
@@ -110,7 +110,7 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar5.jpeg',
                 'title' => 'Studio Pro Large',
-                'price' => '100.000',
+                'price' => 'Rp. 300.000',
                 'link' => '',
             ])
 
@@ -118,7 +118,7 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar6.jpeg',
                 'title' => 'Fish Eye',
-                'price' => '100.000',
+                'price' => 'Rp. 50.000',
                 'link' => '',
             ])
 
@@ -126,7 +126,7 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar7.jpeg',
                 'title' => 'Formal Photo',
-                'price' => '100.000',
+                'price' => 'Rp. 130.000',
                 'link' => '',
             ])
 
@@ -134,7 +134,39 @@
                 'category' => 'Studio Photo',
                 'image' => 'images/gambar8.jpg',
                 'title' => 'Bird Eye',
-                'price' => '100.000',
+                'price' => 'Rp. 50.000',
+                'link' => '',
+            ])
+
+            @include('components.card_studio', [
+                'category' => 'Studio Partner',
+                'image' => 'images/gambar19.jpg',
+                'title' => 'LEXUS Photobox',
+                'price' => '',
+                'link' => '',
+            ])
+
+            @include('components.card_studio', [
+                'category' => 'Studio Partner',
+                'image' => 'images/gambar18.jpg',
+                'title' => 'Hana Studio',
+                'price' => '',
+                'link' => '',
+            ])
+
+            @include('components.card_studio', [
+                'category' => 'Studio Partner',
+                'image' => 'images/gambar21.jpg',
+                'title' => 'StudioLune',
+                'price' => '',
+                'link' => '',
+            ])
+
+            @include('components.card_studio', [
+                'category' => 'Studio Partner',
+                'image' => 'images/gambar20.jpg',
+                'title' => 'EarthDio',
+                'price' => '',
                 'link' => '',
             ])
         </div>

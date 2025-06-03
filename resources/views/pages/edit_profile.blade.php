@@ -3,9 +3,9 @@
 @section('title', 'Edit Profile')
 
 @section('content')
-    <div class="bg-primary text-secondary rounded-3xl p-14 h-[100vh] max-h-[600px]">
-        <h4 class="text-center text-2xl mb-5 mt-2">Edit Profile</h4>
-        <div class="flex justify-center mb-4">
+    <div class="bg-primary text-secondary rounded-3xl p-10 h-[100vh] max-h-[560px]">
+        <h4 class="text-center text-2xl mb-4">Edit Profile</h4>
+        <div class="flex justify-center">
           	<div class="w-20 h-20 rounded-full border-2 border-secondary overflow-hidden">
             	<img src="images/gambar8.jpg" alt="Profile Picture" class="object-cover w-full h-full">
           	</div>
