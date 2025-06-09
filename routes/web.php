@@ -16,9 +16,15 @@ Route::get('/settings_admin', [SettingsController::class, 'index'])->name('setti
 
 use App\Http\Controllers\FeedbackController;
 Route::get('/feedback_admin', [FeedbackController::class, 'index'])->name('feedback_admin');
-
+ 
 use App\Http\Controllers\RoomDataController;
-Route::get('/room_data_admin', [RoomDataController::class, 'index'])->name('room_data_admin');
+Route::get('/room_data_admin', [RoomDataController::class, 'show']);
+Route::post('/room_data_admin/simpan', [RoomDataController::class, 'simpan'])->name('room_data_admin.simpan');
+Route::delete('/room_data_admin/hapus/{id}', [RoomDataController::class, 'hapus'])->name('room_data_admin.hapus');
+Route::put('/room_data_admin/update/{id}', [RoomDataController::class, 'update'])->name('room_data_admin.update');
+Route::get('/api/room_data/{id}', function ($id) {
+    return \App\Models\ProdukRoom::findOrFail($id);
+});
 
 use App\Http\Controllers\RoomPartnerController;
 Route::get('/room_partner_admin', [RoomPartnerController::class, 'index'])->name('room_partner_admin');
