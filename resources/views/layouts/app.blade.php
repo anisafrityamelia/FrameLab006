@@ -36,11 +36,6 @@
       const submenu = document.getElementById('roomSubmenu');
       submenu.classList.toggle('hidden');
     }
-
-    function toggleSubmenu() {
-      const submenu = document.getElementById('submenu');
-      submenu.classList.toggle('hidden');
-    }
   </script>
 </body>
 </html>
