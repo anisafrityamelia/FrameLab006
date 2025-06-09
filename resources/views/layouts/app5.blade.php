@@ -24,5 +24,7 @@
 </head>
 <body class="h-screen flex items-center justify-center font-custom bg-cover bg-center" style="background-image: url('{{ asset('images/gradasi.png') }}');">
 	@yield('content')
+
+	{!! NoCaptcha::renderJs() !!}
 </body>
 </html>

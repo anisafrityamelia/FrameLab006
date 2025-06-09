@@ -42,6 +42,16 @@
             <label for="terms" class="text-sm text-primary">I agree to the applicable Terms of Service and Privacy Policy</label>
         </div>
         <div class="flex justify-center mt-4">
+            {!! NoCaptcha::display() !!}
+</div>
+<!-- Tambahkan ini -->
+@error('g-recaptcha-response')
+    <p class="text-sm text-red-500 mt-2 text-center">{{ $message }}</p>
+@enderror
+@if ($errors->has('captcha'))
+    <p class="text-sm text-red-500 mt-2 text-center">{{ $errors->first('captcha') }}</p>
+@endif
+        <div class="flex justify-center mt-4">
             <button type="submit" name="register" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-20 rounded">Create Account</button>
         </div>
         <div class="text-center mt-4 text-primary">

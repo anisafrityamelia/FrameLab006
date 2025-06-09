@@ -51,7 +51,7 @@ use App\Http\Controllers\LoginController;
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 use App\Http\Controllers\RegisterController;
-Route::get('/register', [registerController::class, 'index'])->name('register');
+Route::match(['get', 'post'], '/register', [RegisterController::class, 'index'])->name('register');
 
 use App\Http\Controllers\DetailStudioPhotoController;
 Route::get('/detail_studio_photo', [DetailStudioPhotoController::class, 'index'])->name('detail_studio_photo');
