@@ -21,7 +21,10 @@ use App\Http\Controllers\RoomDataController;
 Route::get('/room_data_admin', [RoomDataController::class, 'index'])->name('room_data_admin');
 
 use App\Http\Controllers\RoomPartnerController;
-Route::get('/room_partner_admin', [RoomPartnerController::class, 'index'])->name('room_partner_admin');
+Route::get('/room_partner_admin', [RoomPartnerController::class, 'show']);
+Route::post('/room_partner_admin', [RoomPartnerController::class, 'simpan'])->name('produk.simpan');
+Route::post('/room_partner_admin/update/{id}', [RoomPartnerController::class, 'update'])->name('produk.update');
+Route::post('/room_partner_admin/delete/{id}', [RoomPartnerController::class, 'delete'])->name('produk.delete');
 
 use App\Http\Controllers\DataVerificationController;
 Route::get('/data_verification', [DataVerificationController::class, 'index'])->name('data_verification');
