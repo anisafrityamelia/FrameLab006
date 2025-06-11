@@ -1,4 +1,4 @@
-<div class="studio-item bg-primary text-white rounded-2xl overflow-hidden text-center" data-category="{{ $category }}">
+<div class="studio-item bg-primary text-white rounded-2xl overflow-hidden text-center transform transition duration-300 hover:scale-105 shadow-md hover:shadow-xl" data-category="{{ $category }}">
     <img src="{{ $image }}" alt="{{ $title }}" class="h-52 w-full object-cover">
     <div class="p-5">
         <h5 class="text-lg">{{ $title }}</h5>
