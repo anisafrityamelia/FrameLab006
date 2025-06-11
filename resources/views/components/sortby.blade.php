@@ -5,7 +5,7 @@
       <option value="all" selected>All Studio</option>
       <option value="Studio Photo">Studio Photo</option>
       <option value="Studio Space">Studio Space</option>
-      <option value="Studio Videos">Studio Videos</option>
+      <option value="Studio Video">Studio Video</option>
       <option value="Studio Partner">Studio Partner</option>
     </select>
 </div>
