@@ -12,11 +12,11 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             @foreach ($data as $produk)
                 @include('components.card_studio', [
+                    'id' => $produk->id,
                     'category' => $produk->studio_type ?? $produk->category ?? '-',
                     'image' => asset(str_starts_with($produk->photo, 'images/') ? $produk->photo : 'images/' . $produk->photo),
                     'title' => $produk->room_name,
-                    'price' => $produk->price ?? '-',
-                    'link' => $produk->link ?? '-',
+                    'price' => $produk->price ?? '',
                 ])
             @endforeach
         </div>
