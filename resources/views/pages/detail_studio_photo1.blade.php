@@ -1,6 +1,6 @@
 @extends('layouts.app6')
 
-@section('title', 'Detail Studio Video')
+@section('title', 'Detail Studio Photo')
 
 @section('content')
 <div class="container mx-auto mt-4 px-4">
@@ -10,16 +10,16 @@
 </div>
 
 <div class="container mx-auto mt-4 px-4">
-  <h2 class="text-center font-bold text-2xl mb-8">Detail Studio Video</h2>
+  <h2 class="text-center font-bold text-2xl mb-8">Detail Studio Photo</h2>
   <div class="bg-primary text-white p-4 rounded-3xl flex flex-col md:flex-row items-center justify-between">
     <div class="w-1/2 h-[415px] overflow-hidden rounded-3xl ml-25">
-      <img src="{{ asset('images/gambar15.jfif') }}" alt="Pod Space" class="w-full h-full object-cover rounded-3xl">
+      <img src="{{ asset('images/gambar2.jpeg') }}" alt="Studio Pro Regular" class="w-full h-full object-cover rounded-3xl">
     </div>
     <div class="text-white p-5 mt-4 md:mt-0 max-w-md w-full mr-32">
-      <h3 class="text-2xl">Pod Space</h3>
+      <h3 class="text-2xl">Studio Pro Regular</h3>
       <p class="text-xl mt-2">Rp. 100.000/Session</p>
       <p class="mt-4">Capture moments with your loved ones in 15 minutes! Photobooth with a simple and timeless concept, perfect for you and your bestie or partner</p>
-      <form action="/confirm_sewa_video" method="POST">
+      <form action="/confirm_sewa_photo" method="POST">
         @csrf
         <div class="mb-8 mt-6">
           <label for="orderDate" class="block mb-2 text-white font-semibold">Order Date</label>
@@ -30,7 +30,7 @@
           <label for="orderTime" class="block mb-2 text-white font-semibold">Order Time</label>
           <div class="grid grid-cols-4 gap-2">
             @php
-              $times = ['10:00'];
+              $times = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20.00'];
             @endphp
             @foreach ($times as $time)
               <label class="cursor-pointer">

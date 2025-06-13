@@ -62,7 +62,7 @@
     items[current].classList.remove('opacity-0');
     items[current].classList.add('opacity-100');
   }
-  setInterval(showNextSlide, 3000);
+  setInterval(showNextSlide, 2000);
 </script>
 </body>
 </html>
