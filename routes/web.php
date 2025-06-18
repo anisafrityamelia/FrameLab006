@@ -88,6 +88,8 @@ Route::post('/confirm_sewa_space', [ConfirmSewaSpaceController::class, 'index'])
 
 use App\Http\Controllers\StudioGabunganController;
 Route::get('/tampilan_studiogabungan', [StudioGabunganController::class, 'index'])->name('tampilan_studiogabungan');
+Route::get('/search-studio', [StudioGabunganController::class, 'search']);
+
 
 use App\Http\Controllers\DetailStudioRoomController;
 Route::get('/detail_studio_room/{id}', [DetailStudioRoomController::class, 'show'])->name('detail_studio_room');

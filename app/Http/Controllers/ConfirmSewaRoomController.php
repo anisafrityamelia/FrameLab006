@@ -12,8 +12,12 @@ class ConfirmSewaRoomController extends Controller
         $room = ProdukRoom::findOrFail($request->room_id);
 
         $order_date = $request->order_date;
-        $order_times = $request->order_time; // array
-        $total_order = count($order_times) * $room->price;
+        $order_times = $request->order_time ?? [];
+        if (empty($order_times) && str_contains($room->duration, 'No Session')) {
+            $total_order = $room->price;
+        } else {
+            $total_order = count($order_times) * $room->price;
+        }
         $code_order = 'ORD-' . strtoupper(Str::random(8)); // contoh kode order acak
 
         return view('pages.confirm_sewa_room', [
