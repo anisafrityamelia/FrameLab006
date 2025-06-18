@@ -17,6 +17,7 @@
                     'image' => asset(str_starts_with($produk->photo, 'images/') ? $produk->photo : 'images/' . $produk->photo),
                     'title' => $produk->room_name,
                     'price' => $produk->price ?? '',
+                    'link' => $produk->link ?? '-',
                 ])
             @endforeach
         </div>
