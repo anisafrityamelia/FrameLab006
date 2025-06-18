@@ -17,7 +17,6 @@
                     'image' => asset(str_starts_with($produk->photo, 'images/') ? $produk->photo : 'images/' . $produk->photo),
                     'title' => $produk->room_name,
                     'price' => $produk->price ?? '',
-                    'link' => $produk->link ?? '-',
                 ])
             @endforeach
         </div>
@@ -63,7 +62,7 @@
                                     </div>
                                     <div class="p-5">
                                         <h5 class="text-lg">${item.room_name}</h5>
-                                        <p>${item.price}</p>
+                                        <p>${item.price ?? ''}</p>
                                         <a href="/detail_studio_room/${item.id}">
                                             <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded">Check</button>
                                         </a>
