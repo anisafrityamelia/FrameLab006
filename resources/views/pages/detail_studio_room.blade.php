@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container mx-auto mt-4 px-4">
-  <a href="/tampilan_studiogabungan" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
+  <a href="{{ route('tampilan_studiogabungan') }}" class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
     <i class="fas fa-arrow-left mr-2"></i> BACK
   </a>
 </div>

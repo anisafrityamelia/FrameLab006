@@ -9,14 +9,14 @@
         <div class="flex flex-wrap justify-center gap-10 mt-7">
             @include('components.card_admin', [
                 'title' => 'Room Data',
-                'count' => '20',
+                'count' => $roomCount,
                 'desc' => 'Total rooms available',
                 'link' => 'room_data_admin',
             ])
             
             @include('components.card_admin', [
                 'title' => 'Orders Total',
-                'count' => '17',
+                'count' => '0',
                 'desc' => 'Total incoming orders',
                 'link' => 'orders_total_admin',
             ])
@@ -24,14 +24,14 @@
         <div class="flex flex-wrap justify-center gap-10 mt-8">
             @include('components.card_admin', [
                 'title' => 'User Data',
-                'count' => '130',
+                'count' => '0',
                 'desc' => 'Total registered users',
                 'link' => 'users_data_admin',
             ])
 
             @include('components.card_admin', [
                 'title' => 'Feedback',
-                'count' => '85',
+                'count' => '0',
                 'desc' => 'Customer feedback',
                 'link' => 'feedback_admin',
             ])

@@ -2,9 +2,13 @@
     <img src="{{ $image }}" alt="{{ $title }}" class="h-52 w-full object-cover">
     <div class="p-5">
         <h5 class="text-lg">{{ $title }}</h5>
-        <p>{{ $price }}</p>
-        <a href="{{ route('detail_studio_room', ['id' => $id]) }}">
-            <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded">Check</button>
+        <p>{{ $price }}</p> 
+        <a href="{{ $category === 'Studio Partner' 
+            ? route('detail_studio_partner', ['id' => $id]) 
+            : route('detail_studio_room', ['id' => $id]) }}">
+            <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded">
+                Check
+            </button>
         </a>
     </div>
 </div>

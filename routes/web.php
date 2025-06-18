@@ -72,7 +72,7 @@ use App\Http\Controllers\DetailStudioSpaceController;
 Route::get('/detail_studio_space', [DetailStudioSpaceController::class, 'index'])->name('detail_studio_space');
 
 use App\Http\Controllers\DetailStudioPartnerController;
-Route::get('/detail_studio_partner', [DetailStudioPartnerController::class, 'index'])->name('detail_studio_partner');
+Route::get('/detail_studio_partner/{id}', [DetailStudioPartnerController::class, 'show'])->name('detail_studio_partner');
 
 use App\Http\Controllers\ReviewController;
 Route::get('/review', [ReviewController::class, 'index'])->name('review');

@@ -9,10 +9,11 @@ use App\Models\ProdukRoom;
 class StudioGabunganController extends Controller
 {
     public function index()
-    {   
-        $dataPartner = ProdukPartner::all();
-        $dataRoom = ProdukRoom::all();
-        $dataGabungan = $dataPartner->merge($dataRoom);
-        return view('pages.tampilan_studiogabungan', ['data' => $dataGabungan]);
+    {
+        $room = ProdukRoom::all();
+        $partner = ProdukPartner::all();
+        $data = $room->concat($partner);
+
+        return view('pages.tampilan_studiogabungan', compact('data'));
     }
 }
