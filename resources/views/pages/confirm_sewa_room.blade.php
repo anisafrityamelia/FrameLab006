@@ -16,7 +16,7 @@
         <img src="{{ asset($room->photo) }}" alt="{{ $room->room_name }}" class="w-full h-full object-cover rounded-3xl">
       </div>
       <div class="text-white p-5 mt-4 md:mt-0 max-w-md w-full mr-32">
-        <h3 class="text-lg font-bold mb-5">{{ $room->room_name }}</h3>
+        <h3 class="text-2xl">{{ $room->room_name }}</h3>
         <div class="mb-3">
           <label class="block mb-1">Total Order</label>
           <input type="text" value="Rp {{ number_format($total_order, 0, ',', '.') }}" class="w-[500px] border border-white rounded-1xl py-1 px-2 text-primary" readonly />
