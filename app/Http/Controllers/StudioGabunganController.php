@@ -29,11 +29,20 @@ class StudioGabunganController extends Controller
             // Kalau ada keyword, filter sesuai nama
             $dataPartner = ProdukPartner::where('room_name', 'like', '%' . $keyword . '%')
                 ->select('id', 'room_name', 'photo', 'studio_type')
-                ->get();
+                ->get()
+                ->map(function ($item) {
+                    $item->kategori = 'partner';
+                    return $item;
+                });
+
 
             $dataRoom = ProdukRoom::where('room_name', 'like', '%' . $keyword . '%')
                 ->select('id', 'room_name', 'photo', 'price', 'studio_type')
-                ->get();
+                ->get()
+                ->map(function ($item) {
+                    $item->kategori = 'room';
+                    return $item;
+                });
         }
 
         $dataGabungan = $dataPartner->merge($dataRoom)->values();

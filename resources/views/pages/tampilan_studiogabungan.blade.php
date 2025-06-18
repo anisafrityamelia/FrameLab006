@@ -63,7 +63,7 @@
                                     <div class="p-5">
                                         <h5 class="text-lg">${item.room_name}</h5>
                                         <p>${item.price ?? ''}</p>
-                                        <a href="/detail_studio_room/${item.id}">
+                                        <a href="${item.kategori === 'partner' ? `/detail_studio_partner/${item.id}` : `/detail_studio_room/${item.id}`}">
                                             <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded">Check</button>
                                         </a>
                                     </div>
