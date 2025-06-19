@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ProdukRoom;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.dashboard_admin');
+        $roomCount = ProdukRoom::count(); 
+        return view('pages.dashboard_admin', compact('roomCount'));
     }
 }
