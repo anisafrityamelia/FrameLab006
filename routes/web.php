@@ -46,9 +46,11 @@ Route::get('/my_orders', [MyOrdersController::class, 'index'])->name('my_orders'
 
 use App\Http\Controllers\EditPasswordController;
 Route::get('/edit_password', [EditPasswordController::class, 'index'])->name('edit_password');
+Route::post('/edit_password', [EditPasswordController::class, 'update'])->name('edit_password.update');
 
 use App\Http\Controllers\EditProfileController;
 Route::get('/edit_profile', [EditProfileController::class, 'index'])->name('edit_profile');
+Route::post('/edit_profile', [EditProfileController::class, 'update'])->name('edit_profile.update');
 
 use App\Http\Controllers\ChatAdminController;
 Route::get('/chat_admin', [ChatAdminController::class, 'index'])->name('chat_admin');
@@ -58,6 +60,7 @@ Route::get('/landing_page1', [LandingPage1Controller::class, 'index'])->name('la
 
 use App\Http\Controllers\LoginController;
 Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'index'])->name('login.post');
 
 use App\Http\Controllers\RegisterController;
 Route::match(['get', 'post'], '/register', [RegisterController::class, 'index'])->name('register');

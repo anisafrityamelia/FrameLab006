@@ -12,7 +12,7 @@
 		<h4 class="text-center text-2xl text-primary">Welcome To</h4>
 		<img src="{{ asset('images/teks_framelab_maroon.png') }}" alt="logo" class="mx-auto w-2/3 my-3" />
 		<h5 class="text-center text-lg text-primary">Sign In To Continue</h5>
-		<form method="POST" class="pt-6">
+		<form method="POST" action="{{ route('login.post') }}" class="pt-6">
 			@csrf
 			<div class="mb-4">
 				<label for="username" class="block font-bold mb-1 text-primary">Username</label>

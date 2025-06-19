@@ -24,8 +24,19 @@
             <th class="px-4 py-2">Action</th>
           </tr>
         </thead>
-        <tbody>
-        </tbody>
+<tbody>
+  @foreach($users as $index => $user)
+    <tr class="bg-white border-b">
+      <td class="px-4 py-2">{{ $index + 1 }}</td>
+      <td class="px-4 py-2">{{ $user->username }}</td>
+      <td class="px-4 py-2">{{ $user->email }}</td>
+      <td class="px-4 py-2">{{ $user->date }}</td>
+      <td class="px-4 py-2">{{ $user->noTelepon }}</td>
+      <td class="px-4 py-2">{{ \Carbon\Carbon::parse($user->created_at)->format('d M Y') }}</td>
+      <td class="px-4 py-2 text-center">-</td>
+    </tr>
+  @endforeach
+</tbody>
       </table>
     </div>
   </div>
