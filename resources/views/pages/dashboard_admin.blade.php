@@ -24,14 +24,14 @@
         <div class="flex flex-wrap justify-center gap-10 mt-8">
             @include('components.card_admin', [
                 'title' => 'User Data',
-                'count' => '0',
+                'count' => $userCount,
                 'desc' => 'Total registered users',
                 'link' => 'users_data_admin',
             ])
 
             @include('components.card_admin', [
                 'title' => 'Feedback',
-                'count' => '0',
+                'count' => $feedbackCount,
                 'desc' => 'Customer feedback',
                 'link' => 'feedback_admin',
             ])

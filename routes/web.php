@@ -16,6 +16,8 @@ Route::get('/settings_admin', [SettingsController::class, 'index'])->name('setti
 
 use App\Http\Controllers\FeedbackController;
 Route::get('/feedback_admin', [FeedbackController::class, 'index'])->name('feedback_admin');
+Route::post('/submit-feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::delete('/feedback/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
 
 use App\Http\Controllers\RoomDataController;
 Route::get('/room_data_admin', [RoomDataController::class, 'show']);
@@ -61,6 +63,7 @@ Route::get('/landing_page1', [LandingPage1Controller::class, 'index'])->name('la
 use App\Http\Controllers\LoginController;
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'index'])->name('login.post');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 use App\Http\Controllers\RegisterController;
 Route::match(['get', 'post'], '/register', [RegisterController::class, 'index'])->name('register');

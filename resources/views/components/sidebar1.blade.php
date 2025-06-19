@@ -24,7 +24,7 @@
     <a href="chat_admin" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
         <i class="fa-solid fa-message mr-2"></i>Chat Admin
     </a>
-    <a href="login" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
+    <a href="{{ route('logout') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
         <i class="fa-solid fa-right-from-bracket mr-2"></i>Log Out
     </a>
 </div>

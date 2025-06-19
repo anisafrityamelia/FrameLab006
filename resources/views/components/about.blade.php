@@ -22,9 +22,18 @@
               <a href="mailto:framelab@gmail.com" class="text-primary hover:underline">framelab@gmail.com</a>
             </p>
             <p class="font-bold mt-4 mb-2">Feedback</p>
-            <form>
-              <input type="text" placeholder="Write your feedback here!" required class="w-full p-2 mb-2 border rounded">
-              <button class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded text-sm">Send</button>
+            @if(session('success'))
+              <div class="text-green-600 font-semibold mb-2">{{ session('success') }}</div>
+            @endif
+
+            @if(session('error'))
+              <div class="text-red-600 font-semibold mb-2">{{ session('error') }}</div>
+            @endif
+
+            <form method="POST" action="{{ route('feedback.store') }}">
+              @csrf
+              <input type="text" name="note" placeholder="Write your feedback here!" required class="w-full p-2 mb-2 border rounded">
+              <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded text-sm">Send</button>
             </form>
           </div>
         </div>

@@ -6,9 +6,20 @@
     <div class="p-5">
         <h5 class="text-lg">{{ $title }}</h5>
         <p>{{ $price }}</p> 
-        <a href="{{ $category === 'Studio Partner' 
-            ? route('detail_studio_partner', ['id' => $id]) 
-            : route('detail_studio_room', ['id' => $id]) }}">
+        @php
+            $isLoggedIn = session()->has('logged_in_user');
+            $checkUrl = '';
+
+            if ($isLoggedIn) {
+                $checkUrl = $category === 'Studio Partner' 
+                    ? route('detail_studio_partner', ['id' => $id]) 
+                    : route('detail_studio_room', ['id' => $id]);
+            } else {
+                $checkUrl = route('login'); // Redirect ke login kalau belum login
+            }
+        @endphp
+
+        <a href="{{ $checkUrl }}">
             <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded">
                 Check
             </button>

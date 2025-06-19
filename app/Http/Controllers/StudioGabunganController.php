@@ -22,9 +22,17 @@ class StudioGabunganController extends Controller
         $keyword = $request->keyword;
 
         if (empty($keyword)) {
-            // Kalau keyword kosong, ambil semua data seperti saat awal halaman tampil
-            $dataPartner = ProdukPartner::all();
-            $dataRoom = ProdukRoom::all();
+            $dataPartner = ProdukPartner::all()
+                ->map(function ($item) {
+                    $item->kategori = 'partner';
+                    return $item;
+                });
+
+            $dataRoom = ProdukRoom::all()
+                ->map(function ($item) {
+                    $item->kategori = 'room';
+                    return $item;
+                });
         } else {
             // Kalau ada keyword, filter sesuai nama
             $dataPartner = ProdukPartner::where('room_name', 'like', '%' . $keyword . '%')

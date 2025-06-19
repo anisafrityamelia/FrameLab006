@@ -35,4 +35,11 @@ class LoginController extends Controller
 
         return view('pages.login');
     }
+    public function logout(Request $request)
+    {
+        $request->session()->forget('logged_in_user'); // Hapus session spesifik
+        // atau bisa pakai: $request->session()->flush(); // Hapus semua session
+
+        return redirect('/landing_page1'); // Balikin ke landing page
+    }
 }

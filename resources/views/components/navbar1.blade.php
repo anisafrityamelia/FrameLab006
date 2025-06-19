@@ -6,9 +6,9 @@
     </a>
 
     <div class="hidden md:flex gap-12">
-      <a href="landing_page1" class="hover:underline">Home Page</a>
-      <a href="landing_page1#services" class="hover:underline">Our Service</a>
-      <a href="landing_page1#about" class="hover:underline">About Us</a>
+      <a href="{{ url('/landing_page1') }}" class="hover:underline">Home Page</a>
+      <a href="{{ url('/landing_page1#services') }}" class="hover:underline">Our Service</a>
+      <a href="{{ url('/landing_page1#about') }}" class="hover:underline">About Us</a>
     </div>
 
     <div>
