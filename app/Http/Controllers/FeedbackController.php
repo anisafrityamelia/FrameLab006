@@ -13,6 +13,19 @@ class FeedbackController extends Controller
         return view('pages.feedback_admin', compact('feedbacks'));
     }
 
+    public function search(Request $request)
+    {
+        $query = Feedback::orderBy('date', 'desc');
+        
+        if ($request->has('keyword') && $request->keyword != '') {
+            $keyword = $request->keyword;
+            $query->where('username', 'like', $keyword . '%');
+        }
+        
+        $feedbacks = $query->get();
+        return view('pages.feedback_admin', compact('feedbacks'));
+    }
+
     public function store(Request $request)
     {
         if (!session()->has('logged_in_user')) {

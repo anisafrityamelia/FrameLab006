@@ -18,6 +18,7 @@ use App\Http\Controllers\FeedbackController;
 Route::get('/feedback_admin', [FeedbackController::class, 'index'])->name('feedback_admin');
 Route::post('/submit-feedback', [FeedbackController::class, 'store'])->name('feedback.store');
 Route::delete('/feedback/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+Route::get('/feedback/search', [FeedbackController::class, 'search'])->name('feedback.search');
 
 use App\Http\Controllers\RoomDataController;
 Route::get('/room_data_admin', [RoomDataController::class, 'show']);
