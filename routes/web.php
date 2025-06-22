@@ -8,6 +8,7 @@ Route::get('/orders_total_admin', [OrdersTotalController::class, 'index'])->name
 use App\Http\Controllers\UsersDataController;
 Route::get('/users_data_admin', [UsersDataController::class, 'index'])->name('users_data_admin');
 Route::delete('/users_data_admin/{id}', [UsersDataController::class, 'destroy'])->name('users.destroy');
+Route::get('/users/search', [UsersDataController::class, 'search'])->name('users.search');
 
 use App\Http\Controllers\PendingDataController;
 Route::get('/pending_data_admin', [PendingDataController::class, 'index'])->name('pending_data_admin');
@@ -22,7 +23,7 @@ Route::delete('/feedback/{id}', [FeedbackController::class, 'destroy'])->name('f
 Route::get('/feedback/search', [FeedbackController::class, 'search'])->name('feedback.search');
 
 use App\Http\Controllers\RoomDataController;
-Route::get('/room_data_admin', [RoomDataController::class, 'show']);
+Route::get('/room_data_admin', [RoomDataController::class, 'show'])->name('room_data_admin');
 Route::post('/room_data_admin/simpan', [RoomDataController::class, 'simpan'])->name('room_data_admin.simpan');
 Route::delete('/room_data_admin/hapus/{id}', [RoomDataController::class, 'hapus'])->name('room_data_admin.hapus');
 Route::put('/room_data_admin/update/{id}', [RoomDataController::class, 'update'])->name('room_data_admin.update');
@@ -31,7 +32,7 @@ Route::get('/api/room_data/{id}', function ($id) {
 });
 
 use App\Http\Controllers\RoomPartnerController;
-Route::get('/room_partner_admin', [RoomPartnerController::class, 'show']);
+Route::get('/room_partner_admin', [RoomPartnerController::class, 'show'])->name('room_partner_admin');
 Route::post('/room_partner_admin', [RoomPartnerController::class, 'simpan'])->name('produk.simpan');
 Route::post('/room_partner_admin/update/{id}', [RoomPartnerController::class, 'update'])->name('produk.update');
 Route::post('/room_partner_admin/delete/{id}', [RoomPartnerController::class, 'delete'])->name('produk.delete');

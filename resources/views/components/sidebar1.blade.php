@@ -1,5 +1,5 @@
 <div class="bg-primary text-secondary w-full md:w-[286px] h-[100vh] max-h-[560px] p-8 rounded-3xl space-y-4">
-    <a href="landing_page1" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
+    <a href="{{ route('landing_page1') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
         <i class="fa-solid fa-house mr-2"></i>Home
     </a>
     <div class="relative">
@@ -10,18 +10,18 @@
             <i class="fa-solid fa-chevron-down ml-2 text-sm"></i>
         </button>
         <div id="submenu" class="mt-2 space-y-1 hidden">
-            <a href="edit_profile" class="block text-lg py-2 pl-6 hover:bg-secondary hover:text-primary rounded">
+            <a href="{{ route('edit_profile') }}" class="block text-lg py-2 pl-6 hover:bg-secondary hover:text-primary rounded">
                 Edit Profile
             </a>
-            <a href="edit_password" class="block text-lg py-2 pl-6 hover:bg-secondary hover:text-primary rounded">
+            <a href="{{ route('edit_password') }}" class="block text-lg py-2 pl-6 hover:bg-secondary hover:text-primary rounded">
                 Edit Password
             </a>
         </div>
     </div>
-    <a href="my_orders" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
+    <a href="{{ route('my_orders') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
         <i class="fa-solid fa-cart-shopping mr-2"></i>My Orders
     </a>
-    <a href="chat_admin" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
+    <a href="{{ route('chat_admin') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
         <i class="fa-solid fa-message mr-2"></i>Chat Admin
     </a>
     <a href="{{ route('logout') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">

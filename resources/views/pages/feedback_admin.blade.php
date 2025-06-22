@@ -49,12 +49,12 @@
     </div>
   </div>
   @if(request('keyword') && $feedbacks->isEmpty())
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (confirm('Tidak ada username yang dimulai dengan "{{ request('keyword') }}"')) {
-        window.location.href = "{{ route('feedback_admin') }}";
-      }
-    });
-  </script>
-@endif
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        if (confirm('Tidak ada username yang dimulai dengan "{{ request('keyword') }}"')) {
+          window.location.href = "{{ route('feedback_admin') }}";
+        }
+      });
+    </script>
+  @endif
 @endsection
