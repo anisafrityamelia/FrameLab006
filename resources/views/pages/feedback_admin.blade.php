@@ -1,7 +1,12 @@
 @extends('layouts.app')
 
 @section('title', 'Feedback Admin')
-
+@if(session('logged_in_user') && session('logged_in_user')->role === 'user')
+  <script>
+    window.location.href = "/landing_page1";
+  </script>
+  @php exit; @endphp
+@endif
 @section('content')
   <div class="bg-primary text-secondary rounded-3xl px-8 py-3 text-lg mb-6">
     <i class="fa-solid fa-message mr-2"></i>Feedback

@@ -1,6 +1,12 @@
 @extends('layouts.app2')
 
 @section('title', 'Edit Profile')
+@if(session('logged_in_user') && session('logged_in_user')->role === 'admin')
+  <script>
+    window.location.href = "/dashboard_admin";
+  </script>
+  @php exit; @endphp
+@endif
 
 @section('content')
 <!-- Font Awesome CDN untuk ikon kamera -->

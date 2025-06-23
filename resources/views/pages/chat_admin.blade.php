@@ -1,6 +1,12 @@
 @extends('layouts.app2')
 
 @section('title', 'Chat Admin')
+@if(session('logged_in_user') && session('logged_in_user')->role === 'admin')
+  <script>
+    window.location.href = "/dashboard_admin";
+  </script>
+  @php exit; @endphp
+@endif
 
 @section('content')
     <div class="bg-primary text-secondary rounded-3xl h-[100vh] max-h-[560px] overflow-hidden">

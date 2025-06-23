@@ -1,6 +1,12 @@
 @extends('layouts.app2')
 
 @section('title', 'My Orders')
+@if(session('logged_in_user') && session('logged_in_user')->role === 'admin')
+  <script>
+    window.location.href = "/dashboard_admin";
+  </script>
+  @php exit; @endphp
+@endif
 
 @section('content')
     <div class="bg-primary text-secondary rounded-3xl p-10 h-[100vh] max-h-[560px]">

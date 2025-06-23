@@ -1,6 +1,12 @@
 @extends('layouts.app4')
 
 @section('title', 'Studio Gabungan')
+@if(session('logged_in_user') && session('logged_in_user')->role === 'admin')
+  <script>
+    window.location.href = "/dashboard_admin";
+  </script>
+  @php exit; @endphp
+@endif
 
 @section('content')
     <div class="container mx-auto mt-8 mb-10 max-w-7xl">
