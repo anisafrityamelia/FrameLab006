@@ -15,6 +15,7 @@ Route::get('/pending_data_admin', [PendingDataController::class, 'index'])->name
 
 use App\Http\Controllers\SettingsController;
 Route::get('/settings_admin', [SettingsController::class, 'index'])->name('settings_admin');
+Route::post('/settings_admin', [SettingsControllerController::class, 'update'])->name('settings_admin.update');
 
 use App\Http\Controllers\FeedbackController;
 Route::get('/feedback_admin', [FeedbackController::class, 'index'])->name('feedback_admin');

@@ -16,14 +16,14 @@
       @csrf
 
       <div class="m-4">
-        <label for="password" class="block mb-2">Password Lama</label>
-        <input type="password" id="password" name="password" placeholder="Masukkan Password Lama" required
+        <label for="password" class="block mb-2">Old Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter Old Password" required
           class="w-full px-4 py-1.5 rounded border border-white bg-white text-black focus:outline-none focus:ring-2 focus:ring-primary/30" />
       </div>
 
       <div class="m-4">
-        <label for="new_password" class="block mb-2">Password Baru</label>
-        <input type="password" id="new_password" name="new_password" placeholder="Masukkan Password Baru" required
+        <label for="new_password" class="block mb-2">New Password</label>
+        <input type="password" id="new_password" name="new_password" placeholder="Enter New Password" required
           class="w-full px-4 py-1.5 rounded border border-white bg-white text-black focus:outline-none focus:ring-2 focus:ring-primary/30" />
       </div>
 
