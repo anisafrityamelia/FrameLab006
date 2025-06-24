@@ -28,7 +28,6 @@
             <th class="px-4 py-2">Total</th>
             <th class="px-4 py-2">Renters</th>
             <th class="px-4 py-2">Studio Type</th>
-            <th class="px-4 py-2">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -36,4 +35,17 @@
       </table>
     </div>
   </div>
+  <script>
+    document.getElementById("studioFilter").addEventListener("change", function () {
+    	const selectedCategory = this.value;
+    	const cards = document.querySelectorAll("[data-category]");
+    	cards.forEach(card => {
+    		if (selectedCategory === "all" || card.dataset.category === selectedCategory) {
+    			card.classList.remove("hidden");
+    		} else {
+    			card.classList.add("hidden");
+    		}
+    	});
+    });
+  </script>
 @endsection

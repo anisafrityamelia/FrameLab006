@@ -24,7 +24,7 @@
         @csrf
         <div class="mb-4">
           <label for="orderDate" class="block mb-2">Order Date</label>
-          <input type="date" id="orderDate" name="order_date" class="w-[500px] p-2 rounded text-primary" required>
+          <input type="date" id="orderDate" name="order_date" class="w-[500px] p-2 rounded text-primary" required min="{{ date('Y-m-d') }}">
         </div>
         <div class="mb-4">
             <label for="orderTime" class="block mb-2 text-white">Order Time</label>
