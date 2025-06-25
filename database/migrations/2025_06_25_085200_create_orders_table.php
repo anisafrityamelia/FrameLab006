@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateOrdersTable extends Migration
 {
     public function up()
     {
@@ -15,14 +15,12 @@ return new class extends Migration
             $table->date('order_date');
             $table->json('order_times');
             $table->decimal('total_amount', 10, 2);
-            $table->enum('payment_status', ['pending', 'paid', 'failed', 'expired'])->default('pending');
-            $table->string('midtrans_transaction_id')->nullable();
-            $table->string('midtrans_payment_type')->nullable();
-            $table->timestamp('expired_at')->nullable();
+            $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
+            $table->string('snap_token')->nullable();
+            $table->string('payment_proof')->nullable();
             $table->timestamps();
 
-            // Foreign key constraint - sesuaikan dengan nama tabel yang benar
-            // $table->foreign('room_id')->references('id')->on('produk_studio');
+            $table->foreign('room_id')->references('id')->on('produk_studio');
         });
     }
 
@@ -30,4 +28,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('orders');
     }
-};
+}

@@ -86,6 +86,10 @@ Route::get('/detail_studio_partner/{id}', [DetailStudioPartnerController::class,
 
 use App\Http\Controllers\ReviewController;
 Route::get('/review', [ReviewController::class, 'index'])->name('review');
+Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
+Route::get('/payment-success', function() {
+    return redirect('/review')->with('message', 'Pembayaran berhasil!');
+})->name('payment.success');
 
 use App\Http\Controllers\ConfirmSewaPhotoController;
 Route::post('/confirm_sewa_photo', [ConfirmSewaPhotoController::class, 'index'])->name('confirm_sewa_photo');
@@ -106,3 +110,5 @@ Route::get('/detail_studio_room/{id}', [DetailStudioRoomController::class, 'show
 
 use App\Http\Controllers\ConfirmSewaRoomController;
 Route::post('/confirm_sewa_room', [ConfirmSewaRoomController::class, 'index'])->name('confirm_sewa_room');
+Route::post('/generate-qris', [ConfirmSewaRoomController::class, 'generateQris'])->name('generate.qris');
+Route::post('/midtrans/callback', [ConfirmSewaRoomController::class, 'handleCallback'])->name('midtrans.callback');
