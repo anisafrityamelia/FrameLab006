@@ -46,18 +46,18 @@
             </div>
         </div>
     </section>
-    <footer class="text-white py-16" style="background-color: #5A0717;">
+    <footer class="text-white py-8" style="background-color: #5A0717;">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
               </div>
                 <div class="text-center">
                     <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
-                        <div class="text-gray-300 text-sm">
+                        <div class="mt-2 text-gray-400 text-xs text-center">
                             <p>&copy; 2025 FrameLab - Batam State Polytechnic. All rights reserved.</p>
                         </div>
                     </div>
-                    <div class="flex justify-center space-x-6 text-sm mt-4">
+                    <div class="flex justify-center space-x-6 text-sm mt-6">
                         <a href="#" class="text-gray-300 hover:text-primary transition-colors">Privacy Policy</a>
                         <a href="#" class="text-gray-300 hover:text-primary transition-colors">Terms of Service</a>
                         <a href="#" class="text-gray-300 hover:text-primary transition-colors">Cookie Policy</a>
