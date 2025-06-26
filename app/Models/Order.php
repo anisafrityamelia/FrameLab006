@@ -17,7 +17,9 @@ class Order extends Model
         'total_amount',
         'payment_status',
         'snap_token',
-        'payment_proof'
+        'payment_proof',
+        'customer_name',    // Tambahkan ini
+        'customer_email'    // Tambahkan ini
     ];
 
     protected $casts = [
@@ -27,5 +29,13 @@ class Order extends Model
     public function room()
     {
         return $this->belongsTo(ProdukRoom::class, 'room_id');
+    }
+
+    /**
+     * Relasi ke Review
+     */
+    public function review()
+    {
+        return $this->hasOne(Review::class, 'code_order', 'code_order');
     }
 }

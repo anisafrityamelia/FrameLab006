@@ -85,8 +85,10 @@ use App\Http\Controllers\DetailStudioPartnerController;
 Route::get('/detail_studio_partner/{id}', [DetailStudioPartnerController::class, 'show'])->name('detail_studio_partner');
 
 use App\Http\Controllers\ReviewController;
-Route::get('/review', [ReviewController::class, 'index'])->name('review');
-Route::post('/review', [ReviewController::class, 'store'])->name('review.store');
+Route::get('/review', [ReviewController::class, 'index'])->name('review.index');
+Route::post('/submit-rating', [ReviewController::class, 'submitRating'])->name('review.submitRating');
+Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
+// Payment Success Route
 Route::get('/payment-success', function() {
     return redirect('/review')->with('message', 'Pembayaran berhasil!');
 })->name('payment.success');
