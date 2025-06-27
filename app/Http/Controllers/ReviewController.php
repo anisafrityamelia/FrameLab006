@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\ProdukRoom;
@@ -45,57 +45,66 @@ class ReviewController extends Controller
     public function submitRating(Request $request)
     {
         try {
-            // Validasi input
+            // ✅ Ambil user dari session manual login kamu
+            $user = session('logged_in_user');
+
+            // ❗ Kalau user belum login
+            if (!$user) {
+                return response()->json(['error' => 'Anda harus login untuk memberikan review'], 401);
+            }
+
+            // ✅ Validasi input
             $validated = $request->validate([
                 'rating' => 'required|integer|min:1|max:5',
                 'feedback' => 'required|string|max:500',
                 'order_id' => 'required|string'
             ]);
-            
-            // Cari order berdasarkan code_order
-            $order = Order::where('code_order', $request->order_id)->first();
-            
+
+            // ✅ Ambil order berdasarkan code_order
+            $order = \App\Models\Order::where('code_order', $request->order_id)->first();
+
             if (!$order) {
                 return response()->json(['error' => 'Order tidak ditemukan'], 404);
             }
-            
-            // Cek apakah sudah pernah review
-            $existingReview = Review::where('code_order', $request->order_id)->first();
-            
+
+            // ✅ Cek apakah review untuk order ini sudah pernah ada
+            $existingReview = \App\Models\Review::where('code_order', $request->order_id)->first();
+
             if ($existingReview) {
                 return response()->json(['error' => 'Anda sudah memberikan review untuk order ini'], 400);
             }
-            
-            // Simpan review
-            $review = Review::create([
+
+            // ✅ Simpan review dengan username & email dari session
+            $review = \App\Models\Review::create([
                 'code_order' => $request->order_id,
                 'room_id' => $order->room_id,
-                'user_name' => $order->customer_name ?? 'Anonymous',
-                'user_email' => $order->customer_email,
+                'user_name' => $user->username,
+                'user_email' => $user->email,
                 'rating' => $request->rating,
                 'feedback' => $request->feedback
             ]);
-            
+
             return response()->json([
-                'success' => true, 
+                'success' => true,
                 'message' => 'Terima kasih atas review Anda!',
                 'review' => $review
             ]);
-            
+
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json([
-                'error' => 'Validation failed',
+                'error' => 'Validasi gagal',
                 'errors' => $e->errors()
             ], 422);
         } catch (\Exception $e) {
-            Log::error('Error submitting review: ' . $e->getMessage());
-            Log::error('Stack trace: ' . $e->getTraceAsString());
-            
+            \Log::error('Gagal menyimpan review: ' . $e->getMessage());
+            \Log::error('Stack trace: ' . $e->getTraceAsString());
+
             return response()->json([
                 'error' => 'Terjadi kesalahan saat menyimpan review: ' . $e->getMessage()
             ], 500);
         }
     }
+
     
     // Method untuk menyimpan review (legacy form submit)
     public function store(Request $request)

@@ -82,37 +82,37 @@
   <h3 class="text-2xl font-bold mb-6 text-center">Customer Reviews ({{ $totalReviews }})</h3>
   
   <!-- Average Rating Summary -->
-  <div class="bg-gray-50 rounded-lg p-6 mb-8 text-center">
+  <div class="bg-secondary rounded-lg p-6 mb-8 text-center shadow-[0_4px_20px_rgba(0,0,0,0.1)] border border-gray-200 hover:shadow-[0_6px_30px_rgba(0,0,0,0.15)] transition-shadow duration-300">
     <div class="flex justify-center items-center mb-2">
       <div class="flex mr-3">
         @for($i = 1; $i <= 5; $i++)
           @if($i <= floor($averageRating))
-            <i class="fas fa-star text-yellow-400 text-xl"></i>
+            <i class="fas fa-star text-yellow-400 text-xl" style="text-shadow: 0 0 0 #facc15, 0 0 10px #facc15;"></i>
           @elseif($i == ceil($averageRating) && $averageRating - floor($averageRating) >= 0.5)
-            <i class="fas fa-star-half-alt text-yellow-400 text-xl"></i>
+            <i class="fas fa-star-half-alt text-yellow-400 text-xl" style="text-shadow: 0 0 0 #facc15, 0 0 10px #facc15;"></i>
           @else
-            <i class="far fa-star text-gray-300 text-xl"></i>
+            <i class="far fa-star text-primary text-xl" ></i>
           @endif
         @endfor
       </div>
-      <span class="text-2xl font-bold text-gray-800">{{ number_format($averageRating, 1) }}</span>
+      <span class="text-2xl font-bold text-primary">{{ number_format($averageRating, 1) }}</span>
     </div>
-    <p class="text-gray-600">Based on {{ $totalReviews }} reviews</p>
+    <p class="text-primary">Based on {{ $totalReviews }} reviews</p>
   </div>
 
   <!-- Individual Reviews -->
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="reviewsContainer">
     @foreach($reviews->take(6) as $review)
-      <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+      <div class="bg-primary rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
         <!-- Review Header -->
         <div class="flex items-center justify-between mb-4">
           <div class="flex items-center">
-            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+            <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary font-bold text-sm">
               {{ strtoupper(substr($review->user_name, 0, 1)) }}
             </div>
             <div class="ml-3">
-              <h4 class="font-semibold text-gray-800 text-sm">{{ $review->user_name }}</h4>
-              <p class="text-gray-500 text-xs">{{ $review->created_at->format('d M Y') }}</p>
+              <h4 class="font-semibold text-secondary text-sm">{{ $review->user_name }}</h4>
+              <p class="text-secondary text-xs">{{ $review->created_at->format('d M Y') }}</p>
             </div>
           </div>
         </div>
@@ -123,14 +123,14 @@
             @if($i <= $review->rating)
               <i class="fas fa-star text-yellow-400 text-sm"></i>
             @else
-              <i class="far fa-star text-gray-300 text-sm"></i>
+              <i class="far fa-star text-secondary text-sm"></i>
             @endif
           @endfor
-          <span class="ml-2 text-sm text-gray-600 font-medium">{{ $review->rating }}/5</span>
+          <span class="ml-2 text-sm text-secondary font-medium">{{ $review->rating }}/5</span>
         </div>
 
         <!-- Review Text -->
-        <p class="text-gray-700 text-sm leading-relaxed line-clamp-4">{{ $review->feedback }}</p>
+        <p class="text-secondary text-sm leading-relaxed line-clamp-4">{{ $review->feedback }}</p>
       </div>
     @endforeach
   </div>
@@ -138,7 +138,7 @@
   @if($totalReviews > 6)
     <div class="text-center mt-8">
       <button 
-        class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-lg font-medium transition-colors duration-200 shadow-md hover:shadow-lg" 
+        class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition-colors duration-200 shadow-md hover:shadow-lg" 
         onclick="showMoreReviews()"
         id="showMoreBtn"
       >
@@ -149,16 +149,16 @@
     <!-- Hidden Reviews for Load More -->
     <div class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6" id="moreReviews">
       @foreach($reviews->skip(6) as $review)
-        <div class="bg-white rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+        <div class="bg-primary rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
           <!-- Review Header -->
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center">
-              <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">
+              <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary font-bold text-sm">
                 {{ strtoupper(substr($review->user_name, 0, 1)) }}
               </div>
               <div class="ml-3">
-                <h4 class="font-semibold text-gray-800 text-sm">{{ $review->user_name }}</h4>
-                <p class="text-gray-500 text-xs">{{ $review->created_at->format('d M Y') }}</p>
+                <h4 class="font-semibold text-secondary text-sm">{{ $review->user_name }}</h4>
+                <p class="text-secondary text-xs">{{ $review->created_at->format('d M Y') }}</p>
               </div>
             </div>
           </div>
@@ -169,14 +169,14 @@
               @if($i <= $review->rating)
                 <i class="fas fa-star text-yellow-400 text-sm"></i>
               @else
-                <i class="far fa-star text-gray-300 text-sm"></i>
+                <i class="far fa-star text-secondary text-sm"></i>
               @endif
             @endfor
-            <span class="ml-2 text-sm text-gray-600 font-medium">{{ $review->rating }}/5</span>
+            <span class="ml-2 text-sm text-secondary font-medium">{{ $review->rating }}/5</span>
           </div>
 
           <!-- Review Text -->
-          <p class="text-gray-700 text-sm leading-relaxed">{{ $review->feedback }}</p>
+          <p class="text-secondary text-sm leading-relaxed">{{ $review->feedback }}</p>
         </div>
       @endforeach
     </div>
@@ -202,10 +202,10 @@ function showMoreReviews() {
 
 @else
 <div class="container mx-auto mt-8 px-4">
-  <div class="bg-gray-50 rounded-lg p-8 text-center">
-    <i class="fas fa-comments text-gray-400 text-4xl mb-4"></i>
-    <h3 class="text-xl font-semibold text-gray-600 mb-2">No Reviews Yet</h3>
-    <p class="text-gray-500">Be the first to leave a review for this studio room!</p>
+  <div class="rounded-lg p-8 text-center">
+    <i class="fas fa-comments text-primary text-4xl mb-4"></i>
+    <h3 class="text-xl font-semibold text-primary mb-2">No Reviews Yet</h3>
+    <p class="text-primary">Be the first to leave a review for this studio room!</p>
   </div>
 </div>
 @endif
