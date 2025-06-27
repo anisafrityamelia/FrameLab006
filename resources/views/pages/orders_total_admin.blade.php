@@ -20,34 +20,34 @@
         @include('components.sortby')
     </div>
 
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto max-h-[370px] overflow-y-auto">
       <table class="w-full text-center text-black">
         <thead>
           <tr class="bg-white text-black">
-            <th class="px-4 py-2">No</th>
-            <th class="px-4 py-2">Code Orders</th>
-            <th class="px-4 py-2">Room Name</th>
-            <th class="px-4 py-2">Studio Type</th>
-            <th class="px-4 py-2">Order Date</th>
-            <th class="px-4 py-2">Customer</th>
-            <th class="px-4 py-2">Email</th>
-            <th class="px-4 py-2">Total</th>
-            <th class="px-4 py-2">Status</th>
-            <th class="px-4 py-2">Action</th>
+            <th class="px-4 py-2 border">No</th>
+            <th class="px-4 py-2 border">Code Orders</th>
+            <th class="px-4 py-2 border">Room Name</th>
+            <th class="px-4 py-2 border">Studio Type</th>
+            <th class="px-4 py-2 border">Order Date</th>
+            <th class="px-4 py-2 border">Customer</th>
+            <th class="px-4 py-2 border">Email</th>
+            <th class="px-4 py-2 border">Total</th>
+            <th class="px-4 py-2 border">Status</th>
+            <th class="px-4 py-2 border">Action</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody> 
           @forelse($orders as $index => $order)
             <tr class="@if($loop->even) bg-gray-100 @else bg-white @endif">
-              <td class="px-4 py-2">{{ $index + 1 }}</td>
-              <td class="px-4 py-2 font-mono text-sm">{{ $order->code_order }}</td>
-              <td class="px-4 py-2">{{ $order->room->room_name ?? 'N/A' }}</td>
-              <td class="px-4 py-2">{{ $order->room->studio_type ?? 'N/A' }}</td>
-              <td class="px-4 py-2">{{ date('d/m/Y', strtotime($order->order_date)) }}</td>
-              <td class="px-4 py-2">{{ $order->customer_name ?? 'N/A' }}</td>
-              <td class="px-4 py-2 text-sm">{{ $order->customer_email ?? 'N/A' }}</td>
-              <td class="px-4 py-2 font-semibold">Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
-              <td class="px-4 py-2">
+              <td class="px-4 py-2 border">{{ $index + 1 }}</td>
+              <td class="px-4 py-2 font-mono text-sm border">{{ $order->code_order }}</td>
+              <td class="px-4 py-2 border">{{ $order->room->room_name ?? 'N/A' }}</td>
+              <td class="px-4 py-2 border">{{ $order->room->studio_type ?? 'N/A' }}</td>
+              <td class="px-4 py-2 border">{{ date('d/m/Y', strtotime($order->order_date)) }}</td>
+              <td class="px-4 py-2 border">{{ $order->customer_name ?? 'N/A' }}</td>
+              <td class="px-4 py-2 text-sm border">{{ $order->customer_email ?? 'N/A' }}</td>
+              <td class="px-4 py-2 font-semibold border">Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
+              <td class="px-4 py-2 border">
                 @if($order->payment_status == 'paid')
                   <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">Paid</span>
                 @elseif($order->payment_status == 'pending')
