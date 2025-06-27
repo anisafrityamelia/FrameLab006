@@ -25,8 +25,10 @@
 <!-- Hidden input untuk order_id -->
 @if(isset($order))
     <input type="hidden" id="order_id" value="{{ $order->code_order }}">
+    <input type="hidden" id="room_id" value="{{ $order->room_id }}">
 @else
     <input type="hidden" id="order_id" value="">
+    <input type="hidden" id="room_id" value="">
 @endif
 
 <script>
@@ -55,7 +57,8 @@
     function submitRating() {
         const feedback = document.getElementById('feedback').value;
         const orderId = document.getElementById('order_id').value;
-        
+        const roomId = document.getElementById('room_id').value;
+
         if (selectedRating == 0) {
             alert("Please select a star rating before submitting.");
             return;
@@ -105,7 +108,7 @@
             
             // Redirect ke home setelah 2 detik
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.href = `/detail_studio_room/${roomId}`;
             }, 2000);
         })
         .catch(error => {
