@@ -10,6 +10,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id', // ✅ tambahkan ini
         'code_order',
         'room_id',
         'order_date',
@@ -18,8 +19,8 @@ class Order extends Model
         'payment_status',
         'snap_token',
         'payment_proof',
-        'customer_name',    // Tambahkan ini
-        'customer_email'    // Tambahkan ini
+        'customer_name',
+        'customer_email'
     ];
 
     protected $casts = [
@@ -31,25 +32,21 @@ class Order extends Model
         return $this->belongsTo(ProdukRoom::class, 'room_id');
     }
 
-    /**
-     * Relasi ke Review
-     */
+    public function user() // ✅ relasi ke user
+    {
+        return $this->belongsTo(\App\Models\Users::class, 'user_id');
+    }
+
     public function review()
     {
         return $this->hasOne(Review::class, 'code_order', 'code_order');
     }
 
-    /**
-     * Accessor untuk mendapatkan studio type
-     */
     public function getStudioTypeAttribute()
     {
         return $this->room ? $this->room->studio_type : 'N/A';
     }
 
-    /**
-     * Accessor untuk mendapatkan payment status badge
-     */
     public function getPaymentStatusBadgeAttribute()
     {
         switch ($this->payment_status) {
