@@ -15,8 +15,7 @@
   </div>
 
   <div class="bg-primary text-secondary rounded-3xl p-6">
-    <div class="flex justify-between items-center mb-6">
-        @include('components.search')
+    <div class="flex justify-end  items-center mb-6">
         @include('components.sortby')
     </div>
 
