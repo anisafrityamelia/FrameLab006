@@ -22,7 +22,7 @@
             
             @include('components.card_admin', [
                 'title' => 'Orders Total',
-                'count' => '0',
+                'count' => $orderCount,
                 'desc' => 'Total incoming orders',
                 'link' => 'orders_total_admin',
             ])
