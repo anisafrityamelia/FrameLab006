@@ -33,7 +33,7 @@
         </thead>
         <tbody>
           @foreach($users as $index => $user)
-            <tr class="bg-gray-100 text-black text-base">
+            <tr class="bg-white text-black text-base">
               <td class="px-4 py-2 border">{{ $index + 1 }}</td>
               <td class="px-4 py-2 border">{{ $user->username }}</td>
               <td class="px-4 py-2 border">{{ $user->email }}</td>
