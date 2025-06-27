@@ -28,7 +28,7 @@ class ConfirmSewaRoomController extends Controller
         $order_times = $request->order_time; // array
         $total_order = count($order_times) * $room->price;
         $code_order = 'ORD-' . strtoupper(Str::random(8));
-
+        
         return view('pages.confirm_sewa_room', [
             'room' => $room,
             'order_date' => $order_date,
@@ -41,13 +41,20 @@ class ConfirmSewaRoomController extends Controller
     public function generateQris(Request $request)
     {
         try {
+            $user = session('logged_in_user');
+            if (!$user) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'anda harus login terlebih dahulu'
+                ]);
+            }
             $room = ProdukRoom::findOrFail($request->room_id);
             $order_times = json_decode($request->order_times, true);
             $total_order = count($order_times) * $room->price;
-            
-            // PERBAIKAN: Generate code_order baru setiap kali untuk menghindari duplicate
-            $code_order = 'ORD-' . strtoupper(Str::random(8)) . '-' . time();
 
+            // Generate code_order baru setiap kali untuk menghindari duplicate
+            $code_order = 'ORD-' . strtoupper(Str::random(8)) . '-' . time();
+            
             // Cek apakah order dengan code_order ini sudah ada (double check)
             $existingOrder = Order::where('code_order', $code_order)->first();
             if ($existingOrder) {
@@ -55,14 +62,17 @@ class ConfirmSewaRoomController extends Controller
                 $code_order = 'ORD-' . strtoupper(Str::random(10)) . '-' . time() . '-' . rand(100, 999);
             }
 
-            // Simpan order ke database
+
+            // Simpan order ke database DENGAN customer_name dan customer_email
             $order = Order::create([
                 'code_order' => $code_order,
                 'room_id' => $room->id,
                 'order_date' => $request->order_date,
                 'order_times' => $order_times,
                 'total_amount' => $total_order,
-                'payment_status' => 'pending'
+                'payment_status' => 'pending',
+                'customer_name' => $user->username,    // TAMBAHAN INI
+                'customer_email' => $user->email   // TAMBAHAN INI
             ]);
 
             // Parameter untuk Midtrans
@@ -80,10 +90,9 @@ class ConfirmSewaRoomController extends Controller
                     ]
                 ],
                 'customer_details' => [
-                    'first_name' => auth()->user()->name ?? 'Customer',
-                    'email' => auth()->user()->email ?? 'customer@example.com',
+                    'first_name' => session('logged_in_user')->username ?? 'Customer',
+                    'email' => session('logged_in_user')->email ?? 'customer@example.com',
                 ],
-                // Hapus enabled_payments, biarkan semua payment method muncul termasuk QRIS
                 'expiry' => [
                     'start_time' => date('Y-m-d H:i:s O'),
                     'unit' => 'minutes',
@@ -99,6 +108,7 @@ class ConfirmSewaRoomController extends Controller
             return response()->json([
                 'success' => true,
                 'snap_token' => $snapToken,
+                'order_id' => $code_order,  // TAMBAHKAN order_id
                 'client_key' => config('midtrans.client_key')
             ]);
 
@@ -110,30 +120,5 @@ class ConfirmSewaRoomController extends Controller
         }
     }
 
-    public function handleCallback(Request $request)
-    {
-        $serverKey = config('midtrans.server_key');
-        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
-
-        if ($hashed == $request->signature_key) {
-            $order = Order::where('code_order', $request->order_id)->first();
-
-            if ($order) {
-                if ($request->transaction_status == 'settlement' || $request->transaction_status == 'capture') {
-                    $order->update(['payment_status' => 'paid']);
-                } elseif ($request->transaction_status == 'cancel' || $request->transaction_status == 'deny' || $request->transaction_status == 'expire') {
-                    $order->update(['payment_status' => 'failed']);
-                }
-            }
-
-            return response()->json([
-                'success' => true,
-                'snap_token' => $snapToken,
-                'order_id' => $code_order, // TAMBAHKAN INI
-                'client_key' => config('midtrans.client_key')
-            ]);
-        }
-
-        return response()->json(['status' => 'error']);
-    }
+    // HAPUS METHOD handleCallback - tidak diperlukan lagi karena pakai webhook terpisah
 }
