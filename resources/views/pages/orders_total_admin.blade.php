@@ -19,34 +19,34 @@
         @include('components.sortby')
     </div>
 
-    <div class="overflow-x-auto max-h-[370px] overflow-y-auto">
-      <table class="w-full text-center text-black">
+    <div class="overflow-x-auto max-h-[370px] overflow-y-auto max-w-[1060px]">
+      <table class="w-full table-fixed text-center text-black">
         <thead>
-          <tr class="bg-white text-black">
-            <th class="px-4 py-2 border">No</th>
-            <th class="px-4 py-2 border">Code Orders</th>
-            <th class="px-4 py-2 border">Room Name</th>
-            <th class="px-4 py-2 border">Studio Type</th>
-            <th class="px-4 py-2 border">Order Date</th>
-            <th class="px-4 py-2 border">Customer</th>
-            <th class="px-4 py-2 border">Email</th>
-            <th class="px-4 py-2 border">Total</th>
-            <th class="px-4 py-2 border">Status</th>
-            <th class="px-4 py-2 border">Action</th>
+          <tr class="bg-gray-100 text-black">
+            <th class="px-1 py-3 border w-[40px]">No</th>
+            <th class="px-1 py-3 border w-[120px]">Code Orders</th>
+            <th class="px-1 py-3 border w-[140px]">Room Name</th>
+            <th class="px-1 py-3 border w-[120px]">Studio Type</th>
+            <th class="px-1 py-3 border w-[120px]">Order Date</th>
+            <th class="px-1 py-3 border w-[140px]">Customer</th>
+            <th class="px-2 py-3 border w-[150px]">Email</th>
+            <th class="px-1 py-3 border w-[100px]">Total</th>
+            <th class="px-1 py-3 border w-[120px]">Status</th>
+            <th class="px-1 py-3 border w-[200px]">Action</th>
           </tr>
         </thead>
         <tbody> 
           @forelse($orders as $index => $order)
-            <tr class="@if($loop->even) bg-gray-100 @else bg-white @endif">
-              <td class="px-4 py-2 border">{{ $index + 1 }}</td>
-              <td class="px-4 py-2 font-mono text-sm border">{{ $order->code_order }}</td>
-              <td class="px-4 py-2 border">{{ $order->room->room_name ?? 'N/A' }}</td>
-              <td class="px-4 py-2 border">{{ $order->room->studio_type ?? 'N/A' }}</td>
-              <td class="px-4 py-2 border">{{ date('d/m/Y', strtotime($order->order_date)) }}</td>
-              <td class="px-4 py-2 border">{{ $order->customer_name ?? 'N/A' }}</td>
-              <td class="px-4 py-2 text-sm border">{{ $order->customer_email ?? 'N/A' }}</td>
-              <td class="px-4 py-2 font-semibold border">Rp {{ number_format($order->total_amount, 0, ',', '.') }}</td>
-              <td class="px-4 py-2 border">
+            <tr class="bg-white text-base text-black">
+              <td class="px-1 py-1 border">{{ $index + 1 }}</td>
+              <td class="px-1 py-1 font-mono text-sm border break-words w-[120px]">{{ $order->code_order }}</td>
+              <td class="px-1 py-1 border break-words w-[140px]">{{ $order->room->room_name ?? 'N/A' }}</td>
+              <td class="px-1 py-1 border break-words w-[120px]">{{ $order->room->studio_type ?? 'N/A' }}</td>
+              <td class="px-1 py-1 border break-words w-[120px]">{{ date('d/m/Y', strtotime($order->order_date)) }}</td>
+              <td class="px-1 py-1 border break-words w-[140px]">{{ $order->customer_name ?? 'N/A' }}</td>
+              <td class="px-2 py-1 text-sm border break-words w-[150px]">{{ $order->customer_email ?? 'N/A' }}</td>
+              <td class="px-1 py-1 border break-words w-[120px]">{{ number_format($order->total_amount, 0, ',', '.') }}</td>
+              <td class="px-1 py-1 border break-words w-[200px]">
                 @if($order->payment_status == 'paid')
                   <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">Paid</span>
                 @elseif($order->payment_status == 'pending')
