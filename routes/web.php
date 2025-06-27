@@ -114,3 +114,13 @@ use App\Http\Controllers\ConfirmSewaRoomController;
 Route::post('/confirm_sewa_room', [ConfirmSewaRoomController::class, 'index'])->name('confirm_sewa_room');
 Route::post('/generate-qris', [ConfirmSewaRoomController::class, 'generateQris'])->name('generate.qris');
 Route::post('/midtrans/callback', [ConfirmSewaRoomController::class, 'handleCallback'])->name('midtrans.callback');
+
+// Webhook Midtrans (harus di luar middleware auth)
+Route::post('/webhook/midtrans', [App\Http\Controllers\MidtransWebhookController::class, 'handle'])
+    ->name('midtrans.webhook');
+
+// TAMBAHKAN ROUTES INI UNTUK ADMIN ACTIONS
+Route::middleware(['auth'])->group(function () {
+    Route::post('/admin/orders/{order}/mark-paid', [App\Http\Controllers\OrdersTotalController::class, 'markAsPaid']);
+    Route::delete('/admin/orders/{order}', [App\Http\Controllers\OrdersTotalController::class, 'deleteOrder']);
+});
