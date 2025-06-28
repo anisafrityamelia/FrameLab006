@@ -52,27 +52,21 @@
                 @elseif($order->payment_status == 'pending')
                   <span class="bg-yellow-500 text-white px-2 py-1 rounded-full text-xs">Pending</span>
                 @elseif($order->payment_status == 'failed')
-                  <span class="bg-red-500 text-white px-2 py-1 rounded-full text-xs">Failed</span>
+                  <span class="bg-red-500 text-white px-2 py-1 rounded-full text-xs">Cancelled</span>
                 @else
                   <span class="bg-gray-500 text-white px-2 py-1 rounded-full text-xs">Unknown</span>
                 @endif
               </td>
-              <td class="px-4 py-2">
+              <td class="px-2 py-2 border">
                 <div class="flex gap-2 justify-center">
-                  <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs"
-                          onclick="viewOrder('{{ $order->id }}')">
-                    View
-                  </button>
-                  @if($order->payment_status == 'pending')
-                    <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-xs"
-                            onclick="markAsPaid('{{ $order->id }}')">
-                      Mark Paid
-                    </button>
-                  @endif
                   <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs"
                           onclick="deleteOrder('{{ $order->id }}')">
                     Delete
                   </button>
+                  <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-3 py-1 rounded text-xs"
+                        onclick="editStatus('{{ $order->id }}', '{{ $order->payment_status }}')">
+                    Edit
+                </button>
                 </div>
               </td>
             </tr>
@@ -104,6 +98,34 @@
       </div>
     </div>
   </div>
+  <div id="editStatusModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+    <div class="flex items-center justify-center min-h-screen">
+      <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold">Edit Order Status</h3>
+          <button onclick="closeEditModal()" class="text-gray-500 hover:text-gray-700">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form id="editStatusForm">
+          @csrf
+          @method('PATCH')
+          <input type="hidden" id="editOrderId">
+          <label for="payment_status" class="block mb-2 text-sm font-medium text-gray-700">Pilih Status:</label>
+          <select id="payment_status" name="payment_status" class="w-full border px-3 py-2 rounded mb-4">
+            <option value="paid">Paid</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+          <div class="text-right">
+            <button type="button" onclick="submitEditStatus()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              Simpan
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 
   <script>
     function viewOrder(orderId) {
@@ -154,10 +176,41 @@
           if (data.success) {
             location.reload();
           } else {
-            alert('Gagal menghapus order');
+            alert('Gagal menghapus order: ' + data.message);
           }
         });
       }
+    }
+    function editStatus(orderId, currentStatus) {
+      document.getElementById('editOrderId').value = orderId;
+      document.getElementById('payment_status').value = (currentStatus === 'failed') ? 'cancelled' : currentStatus;
+      document.getElementById('editStatusModal').classList.remove('hidden');
+    }
+
+    function closeEditModal() {
+      document.getElementById('editStatusModal').classList.add('hidden');
+    }
+
+    function submitEditStatus() {
+      const orderId = document.getElementById('editOrderId').value;
+      const status = document.getElementById('payment_status').value;
+
+      fetch(`/admin/orders/${orderId}/update-status`, {
+        method: 'PATCH',
+        headers: {
+          'X-CSRF-TOKEN': '{{ csrf_token() }}',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ payment_status: status })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          location.reload();
+        } else {
+          alert(data.message);
+        }
+      });
     }
 
     // Filter functionality

@@ -48,4 +48,27 @@ class OrdersTotalController extends Controller
             ]);
         }
     }
+    public function updateStatus(Request $request, Order $order)
+    {
+        $request->validate([
+            'payment_status' => 'required|in:paid,cancelled'
+        ]);
+
+        try {
+            $order->update([
+                'payment_status' => $request->payment_status === 'cancelled' ? 'failed' : 'paid'
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Status berhasil diperbarui.'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Gagal update status: ' . $e->getMessage()
+            ]);
+        }
+    }
+    
 }

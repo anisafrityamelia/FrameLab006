@@ -125,3 +125,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/admin/orders/{order}/mark-paid', [App\Http\Controllers\OrdersTotalController::class, 'markAsPaid']);
     Route::delete('/admin/orders/{order}', [App\Http\Controllers\OrdersTotalController::class, 'deleteOrder']);
 });
+Route::patch('/admin/orders/{order}/update-status', [App\Http\Controllers\OrdersTotalController::class, 'updateStatus']);
+Route::delete('/admin/orders/{order}', [App\Http\Controllers\OrdersTotalController::class, 'deleteOrder']);
