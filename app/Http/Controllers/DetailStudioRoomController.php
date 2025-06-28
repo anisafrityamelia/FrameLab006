@@ -5,12 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ProdukRoom;
 use App\Models\Review;
+use App\Models\Order;
 
 class DetailStudioRoomController extends Controller
 {
     public function show($id)
     {
         $room = ProdukRoom::findOrFail($id);
+
+        $selectedDate = request()->get('order_date') ?? date('Y-m-d'); // default hari ini
+        $bookedTimes = Order::where('room_id', $id)
+            ->where('order_date', $selectedDate)
+            ->where('payment_status', 'paid')
+            ->pluck('order_times')
+            ->flatMap(function ($item) {
+                if (is_array($item)) return $item;
+                return json_decode($item, true) ?? [];
+            })
+            ->toArray();
 
         // Ambil reviews untuk room ini dengan relasi yang dioptimalkan
         $reviews = Review::where('room_id', $id)
@@ -56,7 +68,8 @@ class DetailStudioRoomController extends Controller
             'ratingDistribution',
             'ratingPercentages',
             'recentReviews',
-            'chartData'
+            'chartData',
+            'bookedTimes'
         ));
     }
 
@@ -116,5 +129,23 @@ class DetailStudioRoomController extends Controller
                 return round(($count / $totalReviews) * 100, 1);
             }, $distribution)
         ]);
+    }
+
+    public function getBookedTimes(Request $request)
+    {
+        $roomId = $request->room_id;
+        $date = $request->order_date;
+
+        $bookedTimes = Order::where('room_id', $roomId)
+            ->where('order_date', $date)
+            ->where('payment_status', 'paid')
+            ->pluck('order_times')
+            ->flatMap(function ($item) {
+                if (is_array($item)) return $item;
+                return json_decode($item, true) ?? [];
+            })
+            ->toArray();
+
+        return response()->json($bookedTimes);
     }
 }

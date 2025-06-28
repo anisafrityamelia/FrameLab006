@@ -108,6 +108,7 @@ Route::get('/search-studio', [StudioGabunganController::class, 'search']);
 
 use App\Http\Controllers\DetailStudioRoomController;
 Route::get('/detail_studio_room/{id}', [DetailStudioRoomController::class, 'show'])->name('detail_studio_room');
+Route::get('/get_booked_times', [DetailStudioRoomController::class, 'getBookedTimes']);
 
 use App\Http\Controllers\ConfirmSewaRoomController;
 Route::post('/confirm_sewa_room', [ConfirmSewaRoomController::class, 'index'])->name('confirm_sewa_room');

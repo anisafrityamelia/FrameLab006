@@ -57,11 +57,13 @@
               @foreach(explode(',', $room->duration) as $durasi)
                 @php
                   $durasiTrim = trim($durasi);
+                  $isBooked = in_array($durasiTrim, $bookedTimes ?? []);
                   @endphp
                   @if(!in_array($durasiTrim, $excluded))
                     <label class="relative block cursor-pointer">
-                      <input type="checkbox" name="order_time[]" value="{{ $durasiTrim }}" class="hidden peer">
-                        <div class="px-4 py-2 rounded text-center transition-all duration-200 bg-white text-primary border border-gray-300 peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-600">
+                      <input type="checkbox" name="order_time[]" value="{{ $durasiTrim }}" class="hidden peer dynamic-order-checkbox" data-value="{{ $durasiTrim }}" @if($isBooked) disabled @endif>
+                        <div class="px-4 py-2 rounded text-center transition-all duration-200 
+                          {{ $isBooked ? 'bg-gray-300 text-gray-500 cursor-not-allowed' : 'bg-white text-primary border border-gray-300 peer-checked:bg-blue-500 peer-checked:text-white' }}">
                           {{ $durasiTrim }}
                         </div>
                       </label>
@@ -210,4 +212,29 @@ function showMoreReviews() {
 </div>
 @endif
 
+<script>
+  document.getElementById('orderDate').addEventListener('change', function () {
+    const selectedDate = this.value;
+    const roomId = "{{ $room->id }}";
+
+    fetch(`/get_booked_times?room_id=${roomId}&order_date=${selectedDate}`)
+      .then(response => response.json())
+      .then(booked => {
+        document.querySelectorAll('.dynamic-order-checkbox').forEach((checkbox) => {
+          const label = checkbox.closest('label');
+          const jam = checkbox.getAttribute('data-value');
+
+          if (booked.includes(jam)) {
+            checkbox.disabled = true;
+            label.querySelector('div').classList.add('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
+            label.querySelector('div').classList.remove('bg-white', 'text-primary', 'border', 'peer-checked:bg-blue-500', 'peer-checked:text-white');
+          } else {
+            checkbox.disabled = false;
+            label.querySelector('div').classList.remove('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
+            label.querySelector('div').classList.add('bg-white', 'text-primary', 'border', 'peer-checked:bg-blue-500', 'peer-checked:text-white');
+          }
+        });
+      });
+  });
+</script>
 @endsection
