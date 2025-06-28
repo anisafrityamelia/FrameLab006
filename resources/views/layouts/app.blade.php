@@ -27,7 +27,7 @@
   @include('components.navbar')
   <div class="flex flex-col md:flex-row mt-11 px-12 gap-11">
     @include('components.sidebar')
-    <div class="flex-1">
+    <div class="flex-1 overflow-x-auto">
       @yield('content')
     </div>
   </div>
