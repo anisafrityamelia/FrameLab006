@@ -45,37 +45,34 @@ class ConfirmSewaRoomController extends Controller
             if (!$user) {
                 return response()->json([
                     'success' => false,
-                    'message' => 'anda harus login terlebih dahulu'
+                    'message' => 'Anda harus login terlebih dahulu'
                 ]);
             }
+
             $room = ProdukRoom::findOrFail($request->room_id);
             $order_times = json_decode($request->order_times, true);
             $total_order = count($order_times) * $room->price;
 
-            // Generate code_order baru setiap kali untuk menghindari duplicate
             $code_order = 'ORD-' . strtoupper(Str::random(8)) . '-' . time();
-            
-            // Cek apakah order dengan code_order ini sudah ada (double check)
-            $existingOrder = Order::where('code_order', $code_order)->first();
-            if ($existingOrder) {
-                // Jika masih ada yang sama, generate lagi
+
+            // Optional: hindari duplikat
+            while (Order::where('code_order', $code_order)->exists()) {
                 $code_order = 'ORD-' . strtoupper(Str::random(10)) . '-' . time() . '-' . rand(100, 999);
             }
 
-
-            // Simpan order ke database DENGAN customer_name dan customer_email
+            // ✅ Simpan user_id
             $order = Order::create([
+                'user_id' => $user->id,
                 'code_order' => $code_order,
                 'room_id' => $room->id,
                 'order_date' => $request->order_date,
                 'order_times' => $order_times,
                 'total_amount' => $total_order,
                 'payment_status' => 'pending',
-                'customer_name' => $user->username,    // TAMBAHAN INI
-                'customer_email' => $user->email   // TAMBAHAN INI
+                'customer_name' => $user->username,
+                'customer_email' => $user->email
             ]);
 
-            // Parameter untuk Midtrans
             $params = [
                 'transaction_details' => [
                     'order_id' => $code_order,
@@ -90,8 +87,8 @@ class ConfirmSewaRoomController extends Controller
                     ]
                 ],
                 'customer_details' => [
-                    'first_name' => session('logged_in_user')->username ?? 'Customer',
-                    'email' => session('logged_in_user')->email ?? 'customer@example.com',
+                    'first_name' => $user->username,
+                    'email' => $user->email,
                 ],
                 'expiry' => [
                     'start_time' => date('Y-m-d H:i:s O'),
@@ -102,13 +99,12 @@ class ConfirmSewaRoomController extends Controller
 
             $snapToken = Snap::getSnapToken($params);
 
-            // Update snap_token di database
             $order->update(['snap_token' => $snapToken]);
 
             return response()->json([
                 'success' => true,
                 'snap_token' => $snapToken,
-                'order_id' => $code_order,  // TAMBAHKAN order_id
+                'order_id' => $code_order,
                 'client_key' => config('midtrans.client_key')
             ]);
 
@@ -120,5 +116,5 @@ class ConfirmSewaRoomController extends Controller
         }
     }
 
-    // HAPUS METHOD handleCallback - tidak diperlukan lagi karena pakai webhook terpisah
+    // Note: handleCallback method tidak dipakai (jika kamu pakai webhook Midtrans)
 }
