@@ -115,6 +115,4 @@ class ConfirmSewaRoomController extends Controller
             ]);
         }
     }
-
-    // Note: handleCallback method tidak dipakai (jika kamu pakai webhook Midtrans)
 }
