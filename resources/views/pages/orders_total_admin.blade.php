@@ -19,8 +19,8 @@
         @include('components.sortby')
     </div>
 
-    <div class="overflow-x-auto max-h-[370px] overflow-y-auto max-w-[1060px]">
-      <table class="w-full table-fixed text-center text-black">
+    <div class="overflow-x-auto max-h-[370px] overflow-y-auto w-full">
+      <table class="min-w-[1400px] w-full text-center text-black">
         <thead>
           <tr class="bg-gray-100 text-black">
             <th class="px-1 py-3 border w-[40px]">No</th>
@@ -32,7 +32,7 @@
             <th class="px-2 py-3 border w-[150px]">Email</th>
             <th class="px-1 py-3 border w-[100px]">Total</th>
             <th class="px-1 py-3 border w-[120px]">Status</th>
-            <th class="px-1 py-3 border w-[200px]">Action</th>
+            <th class="px-1 py-3 border w-[150px]">Action</th>
           </tr>
         </thead>
         <tbody> 
@@ -46,7 +46,7 @@
               <td class="px-1 py-1 border break-words w-[140px]">{{ $order->customer_name ?? 'N/A' }}</td>
               <td class="px-2 py-1 text-sm border break-words w-[150px]">{{ $order->customer_email ?? 'N/A' }}</td>
               <td class="px-1 py-1 border break-words w-[120px]">{{ number_format($order->total_amount, 0, ',', '.') }}</td>
-              <td class="px-1 py-1 border break-words w-[200px]">
+              <td class="px-1 py-1 border break-words w-[120px]">
                 @if($order->payment_status == 'paid')
                   <span class="bg-green-500 text-white px-2 py-1 rounded-full text-xs">Paid</span>
                 @elseif($order->payment_status == 'pending')

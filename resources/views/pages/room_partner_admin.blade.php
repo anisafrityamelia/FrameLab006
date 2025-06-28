@@ -17,7 +17,7 @@
           		<i class="fas fa-plus-circle mr-2"></i>Add New Room
         	</button>
         </div>
-		<div class="overflow-x-auto overflow-y-auto w-full max-h-[370px] max-w-[1060px]">
+		<div class="overflow-x-auto overflow-y-auto w-full max-h-[370px] w-full">
 			<div class="overflow-x-auto w-full">
 				<table class="table-fixed w-full min-w-[1400px] border-collapse border border-gray-300 text-black shadow-sm rounded">
 					<thead>
