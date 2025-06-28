@@ -106,7 +106,6 @@ use App\Http\Controllers\StudioGabunganController;
 Route::get('/tampilan_studiogabungan', [StudioGabunganController::class, 'index'])->name('tampilan_studiogabungan');
 Route::get('/search-studio', [StudioGabunganController::class, 'search']);
 
-
 use App\Http\Controllers\DetailStudioRoomController;
 Route::get('/detail_studio_room/{id}', [DetailStudioRoomController::class, 'show'])->name('detail_studio_room');
 
@@ -116,8 +115,9 @@ Route::post('/generate-qris', [ConfirmSewaRoomController::class, 'generateQris']
 Route::post('/midtrans/callback', [ConfirmSewaRoomController::class, 'handleCallback'])->name('midtrans.callback');
 
 // Webhook Midtrans (harus di luar middleware auth)
-Route::post('/webhook/midtrans', [App\Http\Controllers\MidtransWebhookController::class, 'handle'])
-    ->name('midtrans.webhook');
+//Route::post('/webhook/midtrans', [App\Http\Controllers\MidtransWebhookController::class, 'handle'])->name('midtrans.webhook');
+use App\Http\Controllers\MidtransWebhookController;
+Route::post('/midtrans/webhook', [MidtransWebhookController::class, 'handle']);
 
 // TAMBAHKAN ROUTES INI UNTUK ADMIN ACTIONS
 Route::middleware(['auth'])->group(function () {
