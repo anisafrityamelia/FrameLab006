@@ -82,6 +82,7 @@
     </div>
   </div>
 
+  <!-- Modal untuk View Order Detail -->
   <div id="orderModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
     <div class="flex items-center justify-center min-h-screen">
       <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
@@ -142,7 +143,7 @@
     function markAsPaid(orderId) {
       if (confirm('Apakah Anda yakin ingin menandai order ini sebagai paid?')) {
         // Implementasi mark as paid
-        fetch(/admin/orders/${orderId}/mark-paid, {
+        fetch(`/admin/orders/${orderId}/mark-paid`, {
           method: 'POST',
           headers: {
             'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -163,7 +164,7 @@
     function deleteOrder(orderId) {
       if (confirm('Apakah Anda yakin ingin menghapus order ini?')) {
         // Implementasi delete order
-        fetch(/admin/orders/${orderId}, {
+        fetch(`/admin/orders/${orderId}`, {
           method: 'DELETE',
           headers: {
             'X-CSRF-TOKEN': '{{ csrf_token() }}',
@@ -194,7 +195,7 @@
       const orderId = document.getElementById('editOrderId').value;
       const status = document.getElementById('payment_status').value;
 
-      fetch(/admin/orders/${orderId}/update-status, {
+      fetch(`/admin/orders/${orderId}/update-status`, {
         method: 'PATCH',
         headers: {
           'X-CSRF-TOKEN': '{{ csrf_token() }}',
