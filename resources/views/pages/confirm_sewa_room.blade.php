@@ -13,8 +13,8 @@
 <div class="container mx-auto mt-4 px-4">
   <h2 class="text-center font-bold text-2xl mb-8">Confirm Sewa Room</h2>
 
-  <div class="bg-primary text-white p-4 rounded-3xl flex flex-col md:flex-row items-center justify-between">
-    <div class="w-1/2 h-[415px] overflow-hidden rounded-3xl ml-25">
+  <div class="bg-primary text-white p-4 rounded-3xl flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+    <div class="w-full lg:w-1/2 h-[300px] md:h-[400px] overflow-hidden rounded-3xl">
       <img src="{{ asset($room->photo) }}" alt="{{ $room->room_name }}" class="w-full h-full object-cover rounded-3xl">
     </div>
 
@@ -24,7 +24,7 @@
       <div class="mb-3">
         <label class="block mb-1">Total Order</label>
         <input type="text" value="Rp {{ number_format($total_order, 0, ',', '.') }}"
-               class="w-[500px] border border-white rounded-1xl py-1 px-2 text-primary" readonly />
+               class="w-full md:w-[500px] border border-white rounded-1xl py-1 px-2 text-primary" readonly />
       </div>
 
       <h5 class="mt-4">Order Info</h5>
@@ -35,16 +35,16 @@
         <input type="hidden" name="order_times" value="{{ json_encode($order_times) }}">
 
         <input type="text" name="code_order" value="{{ $code_order }}"
-               class="w-[500px] border border-white rounded-none py-1 px-2 mb-2 text-primary" readonly />
+               class="w-full md:w-[500px] border border-white rounded-none py-1 px-2 mb-2 text-primary" readonly />
         <input type="text" name="order_date" value="{{ $order_date }}"
-               class="w-[500px] border border-white rounded-none py-1 px-2 mb-2 text-primary" readonly />
+               class="w-full md:w-[500px] border border-white rounded-none py-1 px-2 mb-2 text-primary" readonly />
         <input type="text" name="order_time" value="{{ implode(', ', $order_times) }}"
-               class="w-[500px] border border-white rounded-none py-1 px-2 mb-3 text-primary" readonly />
+               class="w-full md:w-[500px] border border-white rounded-none py-1 px-2 mb-3 text-primary" readonly />
 
         <h5 class="mt-4">Payment Method</h5>
 
         <button type="button" id="pay-button"
-                class="bg-blue-600 text-white rounded py-1 px-2 mb-3 hover:bg-blue-700">
+                class="w-full md:w-[500px] bg-blue-600 text-white rounded py-3 px-4 mb-3 hover:bg-blue-700">
           Scan QRIS Here
         </button>
 
