@@ -10,8 +10,8 @@
 <div class="container mx-auto mt-4 px-4">
   <h2 class="text-center font-bold text-2xl mb-8">Detail Studio Room</h2>
 
-  <div class="bg-primary text-white p-4 rounded-3xl flex flex-col md:flex-row items-center justify-between">
-    <div class="w-1/2 h-[415px] overflow-hidden rounded-3xl ml-25">
+  <div class="bg-primary text-white p-4 rounded-3xl flex flex-col lg:flex-row gap-6 items-start lg:items-center justify-between">
+    <div class="w-full lg:w-1/2 h-[300px] md:h-[400px] overflow-hidden rounded-3xl">
       <img src="{{ asset($room->photo) }}" alt="{{ $room->room_name }}" class="w-full h-full object-cover rounded-3xl">
     </div>
 
@@ -45,12 +45,12 @@
         @csrf
         <div class="mb-4">
           <label for="orderDate" class="block mb-2">Order Date</label>
-          <input type="date" id="orderDate" name="order_date" class="w-[500px] p-2 rounded text-primary" required min="{{ date('Y-m-d') }}">
+          <input type="date" id="orderDate" name="order_date" class="w-full md:w-[500px] p-2 rounded text-primary" required min="{{ date('Y-m-d') }}">
         </div>
 
         <div class="mb-4">
             <label for="orderTime" class="block mb-2 text-white">Order Time</label>
-            <div class="grid grid-cols-5 gap-2">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
               @php
                 $excluded = ['All In', 'No Session'];
               @endphp
@@ -72,7 +72,7 @@
             </div>
         </div>
 
-        <button type="submit" class="w-[500px] bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded mt-4">Order Now</button>
+        <button type="submit" class="w-full md:w-[500px] bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded mt-4">Order Now</button>
       </form>
     </div>
   </div>
@@ -103,7 +103,7 @@
   </div>
 
   <!-- Individual Reviews -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="reviewsContainer">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="reviewsContainer">
     @foreach($reviews->take(6) as $review)
       <div class="bg-primary rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
         <!-- Review Header -->
@@ -149,7 +149,7 @@
     </div>
 
     <!-- Hidden Reviews for Load More -->
-    <div class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6" id="moreReviews">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="moreReviews">
       @foreach($reviews->skip(6) as $review)
         <div class="bg-primary rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
           <!-- Review Header -->

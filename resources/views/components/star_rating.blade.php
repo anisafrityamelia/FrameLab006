@@ -1,7 +1,7 @@
 <div class="bg-wine text-white rounded-xl p-7 mx-auto mt-12 mb-8 w-4/5 text-left">
     <p class="mb-1">Thank you!</p>
-    <p>Your payment is being verified by admin.<br>
-        We will contact you via WhatsApp once confirmed.</p>
+    <p>Your payment was successful and verified automatically.<br>
+        We'll contact you via WhatsApp shortly.</p>
 </div>
 
 <div class="bg-wine text-white rounded-xl p-10 mx-auto mb-8 w-4/5 text-center">
