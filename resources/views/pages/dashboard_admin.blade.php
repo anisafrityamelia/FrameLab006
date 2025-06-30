@@ -9,10 +9,10 @@
 @endif
 
 @section('content')
-    <div class="bg-primary text-secondary rounded-3xl p-7 h-[100vh] max-h-[560px]">
-        <h4 class="text-2xl mb-1 mt-1">Hello, Admin!</h4>
-        <p class="text-lg">Welcome to your dashboard.</p>
-        <div class="flex flex-wrap justify-center gap-10 mt-7">
+    <div class="bg-primary text-secondary rounded-3xl p-7 min-h-screen lg:min-h-[560px] flex-1">
+        <h4 class="text-xl sm:text-2xl mb-1 mt-1">Hello, Admin!</h4>
+        <p class="text-base sm:text-lg">Welcome to your dashboard.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             @include('components.card_admin', [
                 'title' => 'Room Data',
                 'count' => $roomCount,
@@ -27,7 +27,7 @@
                 'link' => 'orders_total_admin',
             ])
         </div>
-        <div class="flex flex-wrap justify-center gap-10 mt-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-7">
             @include('components.card_admin', [
                 'title' => 'User Data',
                 'count' => $userCount,

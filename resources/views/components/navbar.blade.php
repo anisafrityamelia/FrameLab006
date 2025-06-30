@@ -1,4 +1,4 @@
-<nav class="bg-primary text-secondary px-9 py-5">
+<nav class="bg-primary text-secondary px-4 sm:px-9 py-3 sm:py-5">
   <div class="container mx-auto flex items-center justify-between">
     
     <a href="#">

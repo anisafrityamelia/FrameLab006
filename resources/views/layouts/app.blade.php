@@ -25,7 +25,7 @@
 </head>
 <body class="min-h-screen bg-secondary font-custom">
   @include('components.navbar')
-  <div class="flex flex-col md:flex-row mt-11 px-12 gap-11">
+  <div class="flex flex-col lg:flex-row mt-11 px-4 sm:px-6 lg:px-12 gap-6 lg:gap-11">
     @include('components.sidebar')
     <div class="flex-1 overflow-x-auto">
       @yield('content')
