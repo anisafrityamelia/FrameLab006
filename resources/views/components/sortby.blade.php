@@ -1,4 +1,4 @@
-<div class="flex items-center gap-2">
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full sm:w-auto">
     <span class="{{ $labelClass ?? 'text-secondary' }}">Sort By</span>
     <select id="studioFilter"
       class="w-48 p-2 text-black border border-primary rounded focus:outline-none focus:ring-1 focus:ring-primary/40">

@@ -15,7 +15,7 @@
             @include('components.search')
             @include('components.sortby', ['labelClass' => 'text-primary'])
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 px-4">
             @foreach ($data as $produk)
                 @include('components.card_studio', [
                     'id' => $produk->id,

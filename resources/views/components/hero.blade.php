@@ -53,9 +53,9 @@
       <img src="images/lpbg9.png" alt="Studio 10" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
-    <div class="absolute inset-0 flex items-center justify-center z-10">
-      <img src="images/logo_framelab_maroon.png" alt="Hero Logo" class="max-w-[120px] h-auto mr-4">
-      <img src="images/teks_framelab_maroon.png" alt="Hero Text" class="max-w-[500px] h-auto">
+    <div class="absolute inset-0 flex flex-col md:flex-row items-center justify-center z-10 text-center md:text-left px-4 space-y-2 md:space-y-0 md:space-x-4">
+      <img src="images/logo_framelab_maroon.png" alt="Hero Logo" class="w-[80px] md:w-[120px] lg:w-[140px] h-auto">
+      <img src="images/teks_framelab_maroon.png" alt="Hero Text" class="w-[250px] md:w-[500px] lg:w-[600px] h-auto">
     </div>
   </div>
 </div>

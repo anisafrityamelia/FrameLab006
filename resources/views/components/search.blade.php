@@ -1,4 +1,4 @@
-<div class="flex w-full md:w-auto" id="searchContainer">
+<div class="w-full sm:w-auto flex" id="searchContainer">
     <input type="text" id="searchBar" name="keyword" value="{{ request('keyword') }}" placeholder="Search here!"
         class="w-full md:w-80 p-2 text-black rounded-l border border-primary focus:outline-none focus:ring-1 focus:ring-primary/40"
         autocomplete="off">
