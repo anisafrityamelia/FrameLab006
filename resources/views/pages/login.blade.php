@@ -3,12 +3,12 @@
 @section('title', 'Login FrameLab')
 
 @section('content')
-<div class="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden w-full max-w-3xl">
+<div class="flex flex-col md:flex-row bg-white rounded-lg shadow-lg overflow-hidden w-[90%] max-w-3xl mx-auto my-10">
 	<div class="hidden md:flex flex-col items-center justify-center bg-secondary p-10 w-1/2">
 		<img src="{{ asset('images/logo_framelab_maroon_teks.png') }}" alt="logo" class="max-w-full h-auto mb-2" />
 		<h5 class="text-center text-lg text-primary">More Than Just a Studio</h5>
 	</div>	
-	<div class="w-full md:w-1/2 p-10">
+	<div class="w-full md:w-1/2 p-6 sm:p-8">
 		<h4 class="text-center text-2xl text-primary">Welcome To</h4>
 		<img src="{{ asset('images/teks_framelab_maroon.png') }}" alt="logo" class="mx-auto w-2/3 my-3" />
 		<h5 class="text-center text-lg text-primary">Sign In To Continue</h5>
