@@ -39,10 +39,10 @@
           </a>
         </div>
       </div>
-      <div class="mt-6 flex gap-3">
-        <img src="{{ asset('images/' . $partner->photo1) }}" alt="Preview 1" class="rounded-xl w-1/3 h-[200px] object-cover">
-        <img src="{{ asset('images/' . $partner->photo2) }}" alt="Preview 2" class="rounded-xl w-1/3 h-[200px] object-cover">
-        <img src="{{ asset('images/' . $partner->photo3) }}" alt="Preview 3" class="rounded-xl w-1/3 h-[200px] object-cover">
+      <div class="mt-6 grid grid-cols-3 gap-3">
+        <img src="{{ asset('images/' . $partner->photo1) }}" alt="Preview 1" class="rounded-xl w-full h-[200px] object-cover">
+        <img src="{{ asset('images/' . $partner->photo2) }}" alt="Preview 2" class="rounded-xl w-full h-[200px] object-cover">
+        <img src="{{ asset('images/' . $partner->photo3) }}" alt="Preview 3" class="rounded-xl w-full h-[200px] object-cover">
       </div>
     </div>
   </div>
