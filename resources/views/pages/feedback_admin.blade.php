@@ -37,7 +37,7 @@
               <td class="px-4 py-2 border break-words w-[270px]">{{ $feedback->note }}</td>
               <td class="px-4 py-2 border">{{ \Carbon\Carbon::parse($feedback->date)->format('d M Y, H:i') }}</td>
               <td class="px-4 py-2">
-                <form action="{{ route('feedback.destroy', $feedback->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus feedback dari {{ $feedback->username }}?')">
+                <form action="{{ route('feedback.destroy', $feedback->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete feedback from {{ $feedback->username }}?')">
                   @csrf
                   @method('DELETE')
                   <button type="submit" class="bg-red-600 hover:bg-red-700 text-white py-1 px-3 rounded text-sm">Delete</button>
@@ -56,7 +56,7 @@
   @if(request('keyword') && $feedbacks->isEmpty())
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        if (confirm('Tidak ada username yang dimulai dengan "{{ request('keyword') }}"')) {
+        if (confirm('There are no usernames starting with "{{ request('keyword') }}"')) {
           window.location.href = "{{ route('feedback_admin') }}";
         }
       });

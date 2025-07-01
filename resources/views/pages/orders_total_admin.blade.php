@@ -162,7 +162,7 @@
     }
 
     function deleteOrder(orderId) {
-      if (confirm('Apakah Anda yakin ingin menghapus order ini?')) {
+      if (confirm('Are you sure you want to delete this order?')) {
         // Implementasi delete order
         fetch(`/admin/orders/${orderId}`, {
           method: 'DELETE',
@@ -228,5 +228,4 @@
       });
     });
   </script>
-
 @endsection

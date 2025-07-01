@@ -58,7 +58,7 @@
   @if(request('keyword') && $users->isEmpty())
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        if (confirm('Tidak ada user dengan username "{{ request('keyword') }}"')) {
+        if (confirm('There are no users with usernames starting with "{{ request('keyword') }}"')) {
           window.location.href = "{{ route('users_data_admin') }}";
         }
       });
