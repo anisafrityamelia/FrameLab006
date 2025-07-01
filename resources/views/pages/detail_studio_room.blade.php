@@ -138,50 +138,51 @@
   </div>
 
   @if($totalReviews > 6)
-    <div class="text-center mt-8">
-      <button 
-        class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition-colors duration-200 shadow-md hover:shadow-lg" 
-        onclick="showMoreReviews()"
-        id="showMoreBtn"
-      >
-        Show More Reviews ({{ $totalReviews - 6 }} more)
-      </button>
-    </div>
-
-    <!-- Hidden Reviews for Load More -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="moreReviews">
-      @foreach($reviews->skip(6) as $review)
-        <div class="bg-primary rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
-          <!-- Review Header -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center">
-              <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary font-bold text-sm">
-                {{ strtoupper(substr($review->user_name, 0, 1)) }}
-              </div>
-              <div class="ml-3">
-                <h4 class="font-semibold text-secondary text-sm">{{ $review->user_name }}</h4>
-                <p class="text-secondary text-xs">{{ $review->created_at->format('d M Y') }}</p>
-              </div>
+  <!-- Hidden Reviews for Load More -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 hidden" id="moreReviews">
+    @foreach($reviews->skip(6) as $review)
+      <div class="bg-primary rounded-xl shadow-lg p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+        <!-- Review Header -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center">
+            <div class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-primary font-bold text-sm">
+              {{ strtoupper(substr($review->user_name, 0, 1)) }}
+            </div>
+            <div class="ml-3">
+              <h4 class="font-semibold text-secondary text-sm">{{ $review->user_name }}</h4>
+              <p class="text-secondary text-xs">{{ $review->created_at->format('d M Y') }}</p>
             </div>
           </div>
-
-          <!-- Rating Stars -->
-          <div class="flex items-center mb-3">
-            @for($i = 1; $i <= 5; $i++)
-              @if($i <= $review->rating)
-                <i class="fas fa-star text-yellow-400 text-sm"></i>
-              @else
-                <i class="far fa-star text-secondary text-sm"></i>
-              @endif
-            @endfor
-            <span class="ml-2 text-sm text-secondary font-medium">{{ $review->rating }}/5</span>
-          </div>
-
-          <!-- Review Text -->
-          <p class="text-secondary text-sm leading-relaxed">{{ $review->feedback }}</p>
         </div>
-      @endforeach
-    </div>
+
+        <!-- Rating Stars -->
+        <div class="flex items-center mb-3">
+          @for($i = 1; $i <= 5; $i++)
+            @if($i <= $review->rating)
+              <i class="fas fa-star text-yellow-400 text-sm"></i>
+            @else
+              <i class="far fa-star text-secondary text-sm"></i>
+            @endif
+          @endfor
+          <span class="ml-2 text-sm text-secondary font-medium">{{ $review->rating }}/5</span>
+        </div>
+
+        <!-- Review Text -->
+        <p class="text-secondary text-sm leading-relaxed">{{ $review->feedback }}</p>
+      </div>
+    @endforeach
+  </div>
+
+  <!-- BUTTON DIPINDAH KE BAWAH -->
+  <div class="text-center mt-8">
+    <button 
+      class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-lg font-medium transition-colors duration-200 shadow-md hover:shadow-lg" 
+      onclick="showMoreReviews()"
+      id="showMoreBtn"
+    >
+      Show More Reviews ({{ $totalReviews - 6 }} more)
+    </button>
+  </div>
   @endif
 </div>
 
