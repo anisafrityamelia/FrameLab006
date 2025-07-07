@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+Route::get('/', function () {
+    return view('pages.landing_page1');
+});
 
 use App\Http\Controllers\OrdersTotalController;
 Route::get('/orders_total_admin', [OrdersTotalController::class, 'index'])->name('orders_total_admin');
