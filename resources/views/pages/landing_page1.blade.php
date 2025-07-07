@@ -10,7 +10,7 @@
 @endif
 
 @if(session()->has('logged_in_user'))
-  <div id="welcome-message" class="fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-full z-40 text-white px-6 py-4 text-xl font-semibold opacity-0 transition-all duration-500 ease-out">
+  <div id="welcome-message" class="absolute top-20 left-1/2 transform -translate-x-1/2 -translate-y-full z-40 text-white px-6 py-4 text-xl font-semibold opacity-0 transition-all duration-500 ease-out">
     <span id="typed-text"></span>
     <span id="cursor" class="animate-pulse">|</span>
   </div>
@@ -54,7 +54,7 @@
       message.style.transform = 'translateX(-50%) translateY(-100%)';
       message.style.opacity = '0';
       setTimeout(() => message.remove(), 500);
-    }, 6000);
+    }, 8000);
   </script>
 @endif
 
