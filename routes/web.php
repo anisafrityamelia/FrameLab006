@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\ProdukRoom;
+
 Route::get('/', function () {
-    return view('pages.landing_page1');
+    $rooms = ProdukRoom::all(); // atau where(...), terserah kamu
+
+    return view('pages.landing_page1', compact('rooms'));
 });
 
 use App\Http\Controllers\OrdersTotalController;
