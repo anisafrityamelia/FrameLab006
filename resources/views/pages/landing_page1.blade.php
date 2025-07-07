@@ -10,24 +10,57 @@
 @endif
 
 @if(session()->has('logged_in_user'))
-  <div id="welcome-message" class="bg-white-100 text-black-800 px-6 py-4 rounded-lg shadow mb-6 mx-auto w-fit text-xl font-semibold transition-opacity duration-500">
-    Welcome to Framelab, {{ session('logged_in_user')->username }}
+  <div id="welcome-message" class="fixed top-20 left-1/2 transform -translate-x-1/2 -translate-y-full z-40 text-white px-6 py-4 text-xl font-semibold opacity-0 transition-all duration-500 ease-out">
+    <span id="typed-text"></span>
+    <span id="cursor" class="animate-pulse">|</span>
   </div>
 
   <script>
+    const welcomeText = "Welcome to Framelab, @if(session('logged_in_user')){{ session('logged_in_user')->username }}@endif";
+    const message = document.getElementById('welcome-message');
+    const typedText = document.getElementById('typed-text');
+    const cursor = document.getElementById('cursor');
+
     setTimeout(() => {
-      const msg = document.getElementById('welcome-message');
-      if (msg) {
-        msg.style.opacity = '0';
-        setTimeout(() => msg.remove(), 500); 
+      message.style.transform = 'translateX(-50%) translateY(0)';
+      message.style.opacity = '1';
+      
+      setTimeout(() => {
+        typeWriter(welcomeText, typedText, 80, () => {
+          setTimeout(() => {
+            cursor.style.display = 'none';
+          }, 1000);
+        });
+      }, 300);
+    }, 200);
+
+    function typeWriter(text, element, speed = 100, callback = null) {
+      let i = 0;
+      element.innerHTML = '';
+      
+      function type() {
+        if (i < text.length) {
+          element.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
+        } else {
+          if (callback) callback();
+        }
       }
-    }, 1500);
+      type();
+    }
+
+    setTimeout(() => {
+      message.style.transform = 'translateX(-50%) translateY(-100%)';
+      message.style.opacity = '0';
+      setTimeout(() => message.remove(), 500);
+    }, 6000);
   </script>
 @endif
 
-  @include('components.hero')
-  @include('components.services')
-  @include('components.why')
-  @include('components.about')
+@include('components.hero')
+@include('components.services')
+@include('components.why')
+@include('components.about')
 
 @endsection
