@@ -11,7 +11,7 @@
 @section('content')
     <div class="container mx-auto mt-8 mb-10 max-w-7xl">
 		<h4 class="text-center font-bold text-2xl mb-8 text-primary">OUR SERVICE</h4></a>
-		<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-4">
+		<div class="flex flex-col md:flex-row justify-between items-center mb-12 gap-4 px-4">
             @include('components.search')
             @include('components.sortby', ['labelClass' => 'text-primary'])
         </div>

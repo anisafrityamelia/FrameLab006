@@ -21,7 +21,7 @@
 
         <a href="{{ $checkUrl }}">
             <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white py-1 px-4 rounded">
-                Check
+                View
             </button>
         </a>
     </div>

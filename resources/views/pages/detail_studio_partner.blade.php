@@ -35,7 +35,7 @@
             href="https://wa.me/{{ $cleanNumber }}" 
             target="_blank"
             class="inline-block bg-white text-[#540c0c] font-semibold py-2 px-4 rounded-lg hover:bg-gray-200 transition">
-            Chat on WhatsApp with {{ $partner->noTelepon }}
+             <i class="fa-brands fa-whatsapp text-[18px] mr-1"></i> Contact Us
           </a>
         </div>
       </div>

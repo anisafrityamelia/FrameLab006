@@ -52,7 +52,7 @@
     <p class="text-sm text-red-500 mt-2 text-center">{{ $errors->first('captcha') }}</p>
 @endif
         <div class="flex justify-center mt-4">
-            <button type="submit" name="register" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-10 sm:px-16 rounded">Create Account</button>
+            <button type="submit" name="register" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-10 sm:px-16 rounded"><i class="fa-solid fa-user-plus mr-2"></i>Create Account</button>
         </div>
         <div class="text-center mt-4 text-primary text-sm">
             Already have an account? <a href="{{ url('/login') }}" class="text-blue-600 hover:text-blue-700">Login</a>

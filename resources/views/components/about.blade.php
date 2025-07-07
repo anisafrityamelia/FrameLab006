@@ -47,7 +47,7 @@
                             <form method="POST" action="{{ route('feedback.store') }}">
                                 @csrf
                                 <input type="text" name="note" placeholder="Write your feedback here!" required class="w-full p-2 mb-2 border rounded">
-                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded text-sm">Send</button>
+                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white py-1 px-3 rounded text-sm"><i class="fa-solid fa-paper-plane mr-2"></i>Send</button>
                             </form>
                         </div>
                     </div>

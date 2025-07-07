@@ -25,7 +25,7 @@
     }
   </script>
 </head>
-<body class="bg-secondary text-primary font-custom">
+<body class="bg-secondary text-primary font-custom pb-10">
   @include('components.navbar1')
   @yield('content')
 </body>

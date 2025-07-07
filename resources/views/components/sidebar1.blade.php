@@ -22,7 +22,7 @@
         <i class="fa-solid fa-cart-shopping mr-2"></i>My Orders
     </a>
     <a href="{{ route('chat_admin') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
-        <i class="fa-solid fa-message mr-2"></i>Chat Admin
+        <i class="fa-brands fa-whatsapp mr-2"></i>Contact Us
     </a>
     <a href="{{ route('logout') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2">
         <i class="fa-solid fa-right-from-bracket mr-2"></i>Log Out

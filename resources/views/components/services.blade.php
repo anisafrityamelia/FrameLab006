@@ -13,7 +13,7 @@
         @endforeach
       </div>
       <div class="text-center mt-8">
-        <a href="{{ route('tampilan_studiogabungan') }}" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-all duration-300 hover:shadow-lg">View More</a>
+        <a href="{{ route('tampilan_studiogabungan') }}" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition-all duration-300 hover:shadow-lg"><i class="fa-solid fa-eye mr-2"></i>View More</a>
       </div>
     </div>
   </section>

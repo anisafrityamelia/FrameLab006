@@ -22,7 +22,7 @@
 				<label for="password" class="block font-bold mb-1 text-primary">Password</label>
 				<input type="password" id="password" name="password" placeholder="Enter a Password" required class="w-full px-4 py-2 border border-primary rounded-md focus:outline-none focus:ring-2 focus:ring-primary/40" />
 			</div>
-			<button type="submit" name="login" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200 mb-4">Login</button>
+			<button type="submit" name="login" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200 mb-4"><i class="fa-solid fa-right-to-bracket mr-2"></i>Login</button>
 		</form>
 		<p class="text-center text-primary">Don't have an account? 
 			<a href="{{ url('/register') }}" class="text-blue-600 hover:text-blue-700">Register now</a>
