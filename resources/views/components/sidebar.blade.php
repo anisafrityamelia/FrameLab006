@@ -12,7 +12,6 @@
         <a href="{{ route('room_partner_admin') }}" class="block text-lg py-2 pl-6 hover:bg-secondary hover:text-primary rounded">Room Partner</a>
       </div>
     </div>
-    <a href="{{ route('feedback_admin') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2"><i class="fa-solid fa-message mr-2"></i>Feedback</a>
     <a href="{{ route('settings_admin') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2"><i class="fa-solid fa-gear mr-2"></i>Settings</a>
     <a href="{{ route('logout') }}" class="block text-lg hover:bg-secondary hover:text-primary rounded px-3 py-2"><i class="fa-solid fa-right-from-bracket mr-2"></i>Log Out</a>
 </div>

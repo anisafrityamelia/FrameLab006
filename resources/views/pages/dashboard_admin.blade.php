@@ -36,10 +36,10 @@
             ])
 
             @include('components.card_admin', [
-                'title' => 'Feedback',
-                'count' => $feedbackCount,
-                'desc' => 'Customer feedback',
-                'link' => 'feedback_admin',
+                'title' => 'Room Partner',
+                'count' => $partnerCount,
+                'desc' => 'Total rooms available',
+                'link' => 'room_partner_admin',
             ])
         </div>
     </div>
