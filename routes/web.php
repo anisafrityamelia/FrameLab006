@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\ProdukRoom;
 
 Route::get('/', function () {
-    $rooms = ProdukRoom::all(); // atau where(...), terserah kamu
+    $rooms = ProdukRoom::take(8)->get();
 
     return view('pages.landing_page1', compact('rooms'));
 });
