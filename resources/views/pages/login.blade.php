@@ -29,4 +29,15 @@
 		</p>
 	</div>
 </div>
+@if ($errors->has('login'))
+    <script>
+        alert("{{ $errors->first('login') }}");
+    </script>
+@endif
+
+@if(session('success'))
+    <script>
+        alert("{{ session('success') }}");
+    </script>
+@endif
 @endsection

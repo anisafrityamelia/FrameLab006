@@ -23,9 +23,9 @@ class LoginController extends Controller
 
                 // ✅ Redirect berdasarkan role
                 if ($user->role === 'admin') {
-                    return redirect('/dashboard_admin');
+                    return redirect('/dashboard_admin')->with('success', 'Login berhasil sebagai admin!');
                 } else {
-                    return redirect('/landing_page1');
+                    return redirect('/landing_page1')->with('success', 'Login berhasil!');
                 }
             } else {
                 // Gagal login
