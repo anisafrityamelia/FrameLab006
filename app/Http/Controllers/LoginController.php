@@ -19,9 +19,9 @@ class LoginController extends Controller
                 session(['logged_in_user' => (object) $user]);
 
                 if ($user->role === 'admin') {
-                    return redirect('/dashboard_admin')->with('success', 'Login berhasil sebagai admin!');
+                    return redirect('/dashboard_admin');
                 } else {
-                    return redirect('/landing_page1')->with('success', 'Login berhasil!');
+                    return redirect('/landing_page1');
                 }
             } else {
                 return back()->withErrors(['login' => 'Username atau password salah'])->withInput();

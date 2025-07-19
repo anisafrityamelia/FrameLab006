@@ -63,9 +63,4 @@
 @include('components.why')
 @include('components.about')
 
-@if (session('success'))
-  <script>
-    alert("{{ session('success') }}");
-  </script>
-@endif
 @endsection
