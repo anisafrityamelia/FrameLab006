@@ -15,8 +15,8 @@
   <div id="carousel" class="relative w-full h-full">
     @php
       $images = [
-        'lpbg.png', 'lpbg1.png', 'lpbg9.png', 'lpbg3.png', 'lpbg4.png',
-        'lpbg5.png', 'lpbg6.png', 'lpbg7.png', 'lpbg8.png', 'lpbg2.png'
+        'lpbg.png', 'lpbg2.png', 'lpbg1.png', 'lpbg3.png', 'lpbg4.png',
+        'lpbg5.png', 'lpbg6.png', 'lpbg7.png', 'lpbg8.png', 'lpbg9.png'
       ];
     @endphp
 
