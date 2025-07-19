@@ -13,7 +13,6 @@ class RegisterController extends Controller
     {
         if ($request->isMethod('post')) {
 
-            // Validasi semua input
             $validator = Validator::make($request->all(), [
                 'username' => 'required|unique:users',
                 'email' => 'required|email',
@@ -35,7 +34,6 @@ class RegisterController extends Controller
                 return back()->withErrors(['captcha' => 'Captcha tidak valid.'])->withInput();
             }
 
-            // Simpan data ke tabel `users`
             DB::table('users')->insert([
                 'username' => $request->input('username'),
                 'email' => $request->input('email'),

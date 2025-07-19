@@ -34,7 +34,6 @@ class StudioGabunganController extends Controller
                     return $item;
                 });
         } else {
-            // Kalau ada keyword, filter sesuai nama
             $dataPartner = ProdukPartner::where('room_name', 'like', '%' . $keyword . '%')
                 ->select('id', 'room_name', 'photo', 'studio_type')
                 ->get()

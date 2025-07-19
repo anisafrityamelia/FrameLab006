@@ -14,7 +14,6 @@ class ConfirmSewaRoomController extends Controller
 {
     public function __construct()
     {
-        // Set konfigurasi Midtrans
         Config::$serverKey = config('midtrans.server_key');
         Config::$isProduction = config('midtrans.is_production');
         Config::$isSanitized = config('midtrans.is_sanitized');
@@ -25,7 +24,7 @@ class ConfirmSewaRoomController extends Controller
     {
         $room = ProdukRoom::findOrFail($request->room_id);
         $order_date = $request->order_date;
-        $order_times = $request->order_time; // array
+        $order_times = $request->order_time; 
         $total_order = count($order_times) * $room->price;
         $code_order = 'ORD-' . strtoupper(Str::random(8));
         
@@ -55,12 +54,10 @@ class ConfirmSewaRoomController extends Controller
 
             $code_order = 'ORD-' . strtoupper(Str::random(8)) . '-' . time();
 
-            // Optional: hindari duplikat
             while (Order::where('code_order', $code_order)->exists()) {
                 $code_order = 'ORD-' . strtoupper(Str::random(10)) . '-' . time() . '-' . rand(100, 999);
             }
 
-            // ✅ Simpan user_id
             $order = Order::create([
                 'user_id' => $user->id,
                 'code_order' => $code_order,

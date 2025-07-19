@@ -74,7 +74,6 @@
             return;
         }
         
-        // Show loading state
         const submitBtn = document.querySelector('button[onclick="submitRating()"]');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Submitting...';
@@ -106,7 +105,6 @@
             document.getElementById('feedback').value = "";
             highlightStars(0);
             
-            // Redirect ke home setelah 2 detik
             setTimeout(() => {
                 window.location.href = `/detail_studio_room/${roomId}`;
             }, 2000);
@@ -116,7 +114,6 @@
             alert("Error submitting rating: " + error.message);
         })
         .finally(() => {
-            // Reset button state
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
         });

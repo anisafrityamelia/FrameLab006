@@ -12,7 +12,6 @@ class ProdukRoom extends Model
     public $timestamps = false;
     protected $fillable = ['photo', 'room_name', 'description', 'duration', 'studio_type','price'];
 
-    // Tambahkan method ini ke model ProdukRoom.php
 
     /**
      * Relasi ke Review

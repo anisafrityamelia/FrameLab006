@@ -15,7 +15,6 @@ class RoomDataController extends Controller
 
     public function simpan(Request $request)
     {
-        // validasi form (sesuaikan dengan fieldmu)
         $request->validate([
             'room_name' => 'required|string|max:255',
             'description' => 'required|string',
@@ -25,7 +24,6 @@ class RoomDataController extends Controller
             'photo' => 'required|image|mimes:jpeg,jfif,jpg,png,gif|max:2048',
         ]);
 
-        // proses upload foto
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
@@ -34,12 +32,11 @@ class RoomDataController extends Controller
             $filename = null;
         }
 
-        // simpan data ke database
         ProdukRoom::create([
             'photo' => 'images/' . $filename,
             'room_name' => $request->room_name,
             'description' => $request->description,
-            'duration' => implode(', ', $request->duration), // kalau checkbox, ini harus jadi string gabungan
+            'duration' => implode(', ', $request->duration),
             'studio_type' => $request->studio_type,
             'price' => $request->price,
         ]);
@@ -51,7 +48,6 @@ class RoomDataController extends Controller
     {
         $room = ProdukRoom::findOrFail($id);
 
-        // Hapus gambar kalau ada dan file-nya memang ada
         if ($room->photo && file_exists(public_path($room->photo))) {
             unlink(public_path($room->photo));
         }
@@ -75,12 +71,10 @@ class RoomDataController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            // Hapus gambar lama
             if ($room->photo && file_exists(public_path($room->photo))) {
                 unlink(public_path($room->photo));
             }
 
-            // Upload gambar baru
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('images'), $filename);

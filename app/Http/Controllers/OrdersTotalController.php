@@ -9,7 +9,6 @@ class OrdersTotalController extends Controller
 {
     public function index()
     {
-        // Ambil semua orders dengan relasi room
         $orders = Order::with('room')->orderBy('created_at', 'desc')->get();
         
         return view('pages.orders_total_admin', compact('orders'));

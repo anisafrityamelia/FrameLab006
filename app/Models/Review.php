@@ -18,13 +18,11 @@ class Review extends Model
         'feedback'
     ];
 
-    // Relasi ke Order
     public function order()
     {
         return $this->belongsTo(Order::class, 'code_order', 'code_order');
     }
 
-    // Relasi ke ProdukRoom
     public function room()
     {
         return $this->belongsTo(ProdukRoom::class, 'room_id');

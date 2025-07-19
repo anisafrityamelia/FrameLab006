@@ -95,7 +95,6 @@ use App\Http\Controllers\ReviewController;
 Route::get('/review', [ReviewController::class, 'index'])->name('review.index');
 Route::post('/submit-rating', [ReviewController::class, 'submitRating'])->name('review.submitRating');
 Route::post('/review/store', [ReviewController::class, 'store'])->name('review.store');
-// Payment Success Route
 Route::get('/payment-success', function() {
     return redirect('/review')->with('message', 'Pembayaran berhasil!');
 })->name('payment.success');
@@ -122,12 +121,9 @@ Route::post('/confirm_sewa_room', [ConfirmSewaRoomController::class, 'index'])->
 Route::post('/generate-qris', [ConfirmSewaRoomController::class, 'generateQris'])->name('generate.qris');
 Route::post('/midtrans/callback', [ConfirmSewaRoomController::class, 'handleCallback'])->name('midtrans.callback');
 
-// Webhook Midtrans (harus di luar middleware auth)
-//Route::post('/webhook/midtrans', [App\Http\Controllers\MidtransWebhookController::class, 'handle'])->name('midtrans.webhook');
 use App\Http\Controllers\MidtransWebhookController;
 Route::post('/midtrans/webhook', [MidtransWebhookController::class, 'handle']);
 
-// TAMBAHKAN ROUTES INI UNTUK ADMIN ACTIONS
 Route::middleware(['auth'])->group(function () {
     Route::post('/admin/orders/{order}/mark-paid', [App\Http\Controllers\OrdersTotalController::class, 'markAsPaid']);
     Route::delete('/admin/orders/{order}', [App\Http\Controllers\OrdersTotalController::class, 'deleteOrder']);

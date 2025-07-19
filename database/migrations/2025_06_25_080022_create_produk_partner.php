@@ -23,7 +23,7 @@ class CreateProdukPartnerTable extends Migration
             $table->text('description3');
             $table->string('noTelepon', 20);
             $table->enum('studio_type', ['Studio Partner']);
-            $table->timestamps(); // Tambahan opsional, bisa dihapus kalau tidak dipakai
+            $table->timestamps(); 
         });
     }
 

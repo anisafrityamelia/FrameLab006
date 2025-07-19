@@ -13,7 +13,7 @@ class DetailStudioRoomController extends Controller
     {
         $room = ProdukRoom::findOrFail($id);
 
-        $selectedDate = request()->get('order_date') ?? date('Y-m-d'); // default hari ini
+        $selectedDate = request()->get('order_date') ?? date('Y-m-d'); 
         $bookedTimes = Order::where('room_id', $id)
             ->where('order_date', $selectedDate)
             ->where('payment_status', 'paid')
@@ -24,31 +24,25 @@ class DetailStudioRoomController extends Controller
             })
             ->toArray();
 
-        // Ambil reviews untuk room ini dengan relasi yang dioptimalkan
         $reviews = Review::where('room_id', $id)
                         ->orderBy('created_at', 'desc')
                         ->get();
 
-        // Hitung statistik rating yang lebih detail
         $totalReviews = $reviews->count();
         $averageRating = $totalReviews > 0 ? round($reviews->avg('rating'), 1) : 0;
         
-        // Hitung distribusi rating (1-5 stars)
         $ratingDistribution = [];
         for ($i = 1; $i <= 5; $i++) {
             $ratingDistribution[$i] = $reviews->where('rating', $i)->count();
         }
 
-        // Hitung persentase untuk setiap rating
         $ratingPercentages = [];
         foreach ($ratingDistribution as $rating => $count) {
             $ratingPercentages[$rating] = $totalReviews > 0 ? round(($count / $totalReviews) * 100, 1) : 0;
         }
 
-        // Ambil recent reviews untuk ditampilkan
         $recentReviews = $reviews->take(5);
 
-        // Data untuk grafik rating (opsional)
         $chartData = [
             'labels' => ['5 Stars', '4 Stars', '3 Stars', '2 Stars', '1 Star'],
             'data' => [

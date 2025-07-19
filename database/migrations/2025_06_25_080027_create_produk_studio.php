@@ -19,7 +19,7 @@ class CreateProdukStudio extends Migration
             $table->string('duration', 255);
             $table->bigInteger('price');
             $table->enum('studio_type', ['Studio Photo', 'Studio Space', 'Studio Video', 'Studio Partner']);
-            $table->timestamps(); // optional, bisa dihapus kalau tidak dipakai
+            $table->timestamps(); 
         });
     }
 

@@ -22,7 +22,6 @@ class CreateUsers extends Migration
             $table->string('password', 255);
             $table->timestamp('created_at')->nullable();
             $table->string('remember_token', 255)->nullable();
-            // $table->timestamps(); // jika ingin gunakan updated_at, bisa aktifkan ini
         });
     }
 

@@ -12,7 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('orders', function (Blueprint $table) {
-            // Cek apakah kolom belum ada sebelum menambahkan
             if (!Schema::hasColumn('orders', 'customer_name')) {
                 $table->string('customer_name')->nullable()->after('payment_proof');
             }

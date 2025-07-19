@@ -10,7 +10,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', // ✅ tambahkan ini
+        'user_id', 
         'code_order',
         'room_id',
         'order_date',
@@ -32,7 +32,7 @@ class Order extends Model
         return $this->belongsTo(ProdukRoom::class, 'room_id');
     }
 
-    public function user() // ✅ relasi ke user
+    public function user() 
     {
         return $this->belongsTo(\App\Models\Users::class, 'user_id');
     }

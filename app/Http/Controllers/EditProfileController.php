@@ -22,20 +22,16 @@ class EditProfileController extends Controller
             'date' => $request->input('date'),
         ];
 
-        // Cek jika ada file foto di-upload
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $filename = time() . '_' . $file->getClientOriginalName();
             $file->move(public_path('uploads'), $filename);
 
-            // Simpan nama file ke kolom photo
             $data['photo'] = $filename;
         }
 
-        // Update ke database
         DB::table('users')->where('id', $user->id)->update($data);
 
-        // Refresh session setelah update
         $updatedUser = DB::table('users')->where('id', $user->id)->first();
         session(['logged_in_user' => (object) $updatedUser]);
 

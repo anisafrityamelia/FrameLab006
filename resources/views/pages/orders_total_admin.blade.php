@@ -93,7 +93,6 @@
           </button>
         </div>
         <div id="orderDetails">
-          <!-- Order details akan diisi via JavaScript -->
         </div>
       </div>
     </div>
@@ -129,10 +128,7 @@
 
   <script>
     function viewOrder(orderId) {
-      // Implementasi view order detail
-      // Bisa menggunakan AJAX untuk fetch detail order
       console.log('View order:', orderId);
-      // Untuk sekarang, tampilkan modal sederhana
       document.getElementById('orderModal').classList.remove('hidden');
     }
 
@@ -142,7 +138,6 @@
 
     function markAsPaid(orderId) {
       if (confirm('Apakah Anda yakin ingin menandai order ini sebagai paid?')) {
-        // Implementasi mark as paid
         fetch(`/admin/orders/${orderId}/mark-paid`, {
           method: 'POST',
           headers: {
@@ -163,7 +158,6 @@
 
     function deleteOrder(orderId) {
       if (confirm('Are you sure you want to delete this order?')) {
-        // Implementasi delete order
         fetch(`/admin/orders/${orderId}`, {
           method: 'DELETE',
           headers: {

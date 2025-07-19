@@ -10,10 +10,8 @@ class MidtransWebhookController extends Controller
 {
     public function handle(Request $request)
     {
-        // Log incoming webhook untuk debugging
         Log::info('Midtrans Webhook Received', $request->all());
 
-        // Ambil data dari webhook
         $orderId = $request->order_id;
         $statusCode = $request->status_code;
         $grossAmount = $request->gross_amount;
@@ -21,7 +19,6 @@ class MidtransWebhookController extends Controller
         $signatureKey = $request->signature_key;
         $serverKey = config('midtrans.server_key');
 
-        // Verifikasi signature
         $mySignatureKey = hash('sha512', $orderId . $statusCode . $grossAmount . $serverKey);
 
         if ($mySignatureKey !== $signatureKey) {
@@ -32,7 +29,6 @@ class MidtransWebhookController extends Controller
             return response()->json(['status' => 'error', 'message' => 'Invalid signature'], 403);
         }
 
-        // Cari order di database
         $order = Order::where('code_order', $orderId)->first();
 
         if (!$order) {
@@ -40,7 +36,6 @@ class MidtransWebhookController extends Controller
             return response()->json(['status' => 'error', 'message' => 'Order not found'], 404);
         }
 
-        // Update status berdasarkan transaction status
         switch ($transactionStatus) {
             case 'settlement':
             case 'capture':

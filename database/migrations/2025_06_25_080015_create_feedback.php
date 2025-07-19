@@ -16,7 +16,6 @@ class CreateFeedback extends Migration
             $table->string('username', 255);
             $table->text('note');
             $table->dateTime('date')->default(DB::raw('CURRENT_TIMESTAMP'));
-            // $table->timestamps(); // jika kamu tidak perlu created_at/updated_at
         });
     }
 
