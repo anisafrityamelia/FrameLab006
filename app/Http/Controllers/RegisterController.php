@@ -43,7 +43,7 @@ class RegisterController extends Controller
                 'created_at' => now()
             ]);
 
-            return redirect('/login')->with('success', 'Registrasi berhasil, silakan login.');
+            return redirect('/login');
         }
 
         return view('pages.register');
