@@ -22,7 +22,7 @@
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
     <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-100">
-      <img src="images/lpbg2.png" alt="Studio 3" class="w-full h-full object-cover">
+      <img src="images/lpbg9.png" alt="Studio 3" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
     <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-100">
@@ -50,7 +50,7 @@
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
     <div class="carousel-item absolute inset-0 transition-opacity duration-1000 opacity-100">
-      <img src="images/lpbg9.png" alt="Studio 10" class="w-full h-full object-cover">
+      <img src="images/lpbg2.png" alt="Studio 10" class="w-full h-full object-cover">
       <div class="absolute inset-0 bg-black bg-opacity-50"></div>
     </div>
     <div class="absolute inset-0 flex flex-col md:flex-row items-center justify-center z-10 text-center md:text-left px-4 space-y-2 md:space-y-0 md:space-x-4">
