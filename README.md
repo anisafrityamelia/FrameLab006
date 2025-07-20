@@ -20,6 +20,13 @@ Logo resmi aplikasi FrameLab yang digunakan pada halaman utama dan dashboard.
 ### 📄 Project Best Learning Kelompok 6
 Aplikasi ini dikembangkan dalam rangka Proyek Berbasis Pembelajaran (PBL) oleh mahasiswa Teknik Informatika Politeknik Negeri Batam.
 
+| NIM         | Nama Lengkap            | Role                              | Posisi     |
+|-------------|--------------------------|-----------------------------------|------------|
+| 3312401035  | Chelsea Maharani Putri  | UI/UX & Back end developer        | Ketua Tim  |
+| 3312401048  | Helena Gultom           | Front end & Back end developer    | Anggota Tim |
+| 3312411076  | Aulya Anantha           | UI/UX & Back end developer        | Anggota Tim |
+| 3312411077  | Anisa Frity Amelia      | Front end & Back end developer    | Anggota Tim |
+
 ---
 
 ### 🛠️ Fitur yang Tersedia
