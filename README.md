@@ -17,8 +17,8 @@ Logo resmi aplikasi FrameLab yang digunakan pada halaman utama dan dashboard.
 
 ---
 
-### 📄 Project Best Learning Kelompok 6
-Aplikasi ini dikembangkan dalam rangka Proyek Berbasis Pembelajaran (PBL) oleh mahasiswa Teknik Informatika Politeknik Negeri Batam.
+### 📄 Project Based Learning Kelompok 6 (PBLIF-006)
+Aplikasi ini dikembangkan dalam rangka Proyek Berbasis Pembelajaran (PBL) oleh mahasiswa IF 2B Reguler Pagi, Prodi Teknik Informatika, Politeknik Negeri Batam.
 
 | NIM         | Nama Lengkap            | Role                              | Posisi     |
 |-------------|--------------------------|-----------------------------------|------------|
