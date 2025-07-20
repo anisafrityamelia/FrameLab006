@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/anisafrityamelia/FrameLab006/blob/main/public/logo_framelab_maroon_teks.png?raw=true" alt="FrameLab Logo" width="300"/>
+  <img src="https://github.com/anisafrityamelia/FrameLab006/blob/main/public/images/logo_framelab_maroon_teks.png?raw=true" alt="FrameLab Logo" width="300"/>
 </p>
 
 # 🎥 FrameLab
